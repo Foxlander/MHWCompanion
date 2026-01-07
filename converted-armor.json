@@ -5,6 +5,7 @@
         "slot": "head",
         "defense": 0,
         "rarity": 1,
+        "family": "Leather",
         "recipe": []
     },
     {
@@ -13,6 +14,7 @@
         "slot": "chest",
         "defense": 5,
         "rarity": 1,
+        "family": "Leather",
         "recipe": [
             {
                 "materialId": "mat-carbalite-ore",
@@ -39,6 +41,7 @@
         "slot": "legs",
         "defense": 5,
         "rarity": 1,
+        "family": "Leather",
         "recipe": [
             {
                 "materialId": "mat-carbalite-ore",
@@ -65,6 +68,7 @@
         "slot": "head",
         "defense": 0,
         "rarity": 1,
+        "family": "Stone",
         "recipe": []
     },
     {
@@ -73,6 +77,7 @@
         "slot": "chest",
         "defense": 5,
         "rarity": 1,
+        "family": "Stone",
         "recipe": [],
         "elementalDefense": {
             "element": "fire",
@@ -94,6 +99,7 @@
         "slot": "chest",
         "defense": 5,
         "rarity": 1,
+        "family": "Stone",
         "recipe": [],
         "elementalDefense": {
             "element": "fire",
@@ -115,6 +121,7 @@
         "slot": "head",
         "defense": 1,
         "rarity": 2,
+        "family": "Alloy",
         "recipe": [
             {
                 "materialId": "mat-machalite-ore",
@@ -136,6 +143,7 @@
         "slot": "chest",
         "defense": 1,
         "rarity": 2,
+        "family": "Alloy",
         "recipe": [
             {
                 "materialId": "mat-machalite-ore",
@@ -157,6 +165,7 @@
         "slot": "legs",
         "defense": 0,
         "rarity": 2,
+        "family": "Alloy",
         "recipe": [
             {
                 "materialId": "mat-machalite-ore",
@@ -187,6 +196,7 @@
         "slot": "head",
         "defense": 1,
         "rarity": 2,
+        "family": "Bones",
         "recipe": [
             {
                 "materialId": "mat-bone-small",
@@ -204,6 +214,7 @@
         "slot": "chest",
         "defense": 0,
         "rarity": 2,
+        "family": "Bones",
         "recipe": [
             {
                 "materialId": "mat-bone-small",
@@ -230,6 +241,7 @@
         "slot": "legs",
         "defense": 1,
         "rarity": 2,
+        "family": "Bones",
         "recipe": [
             {
                 "materialId": "mat-bone-small",
@@ -247,6 +259,7 @@
         "slot": "head",
         "defense": 1,
         "rarity": 3,
+        "family": "Jagras",
         "recipe": [
             {
                 "materialId": "mat-jagras-hide",
@@ -285,6 +298,7 @@
         "slot": "chest",
         "defense": 1,
         "rarity": 3,
+        "family": "Jagras",
         "recipe": [
             {
                 "materialId": "mat-jagras-hide",
@@ -323,6 +337,7 @@
         "slot": "legs",
         "defense": 1,
         "rarity": 3,
+        "family": "Jagras",
         "recipe": [
             {
                 "materialId": "mat-jagras-scale",
@@ -348,6 +363,7 @@
         "slot": "head",
         "defense": 1,
         "rarity": 3,
+        "family": "Barroth",
         "recipe": [
             {
                 "materialId": "mat-barroth-ridge",
@@ -382,6 +398,7 @@
         "slot": "chest",
         "defense": 1,
         "rarity": 3,
+        "family": "Barroth",
         "recipe": [
             {
                 "materialId": "mat-barroth-carapace",
@@ -411,6 +428,7 @@
         "slot": "legs",
         "defense": 1,
         "rarity": 3,
+        "family": "Barroth",
         "recipe": [
             {
                 "materialId": "mat-barroth-ridge",
@@ -449,6 +467,7 @@
         "slot": "head",
         "defense": 1,
         "rarity": 3,
+        "family": "Pukei Pukei",
         "recipe": [
             {
                 "materialId": "mat-pukei-carapace",
@@ -483,6 +502,7 @@
         "slot": "chest",
         "defense": 1,
         "rarity": 3,
+        "family": "Pukei Pukei",
         "recipe": [
             {
                 "materialId": "mat-pukei-scale",
@@ -517,6 +537,7 @@
         "slot": "legs",
         "defense": 1,
         "rarity": 3,
+        "family": "Pukei Pukei",
         "recipe": [
             {
                 "materialId": "mat-pukei-carapace",
@@ -555,6 +576,7 @@
         "slot": "head",
         "defense": 1,
         "rarity": 3,
+        "family": "Jyuratodus",
         "recipe": [
             {
                 "materialId": "mat-jyuratodus-scale",
@@ -593,6 +615,7 @@
         "slot": "chest",
         "defense": 1,
         "rarity": 3,
+        "family": "Jyuratodus",
         "recipe": [
             {
                 "materialId": "mat-jyuratodus-scale",
@@ -631,6 +654,7 @@
         "slot": "legs",
         "defense": 1,
         "rarity": 3,
+        "family": "Jyuratodus",
         "recipe": [
             {
                 "materialId": "mat-jyuratodus-carapace",
@@ -660,6 +684,7 @@
         "slot": "head",
         "defense": 0,
         "rarity": 3,
+        "family": "Tobi Kadachi",
         "recipe": [
             {
                 "materialId": "mat-unknown-tobikadachi-pelt",
@@ -694,6 +719,7 @@
         "slot": "chest",
         "defense": 1,
         "rarity": 3,
+        "family": "Tobi Kadachi",
         "recipe": [
             {
                 "materialId": "mat-unknown-tobikadachi-pelt",
@@ -732,6 +758,7 @@
         "slot": "legs",
         "defense": 1,
         "rarity": 3,
+        "family": "Tobi Kadachi",
         "recipe": [
             {
                 "materialId": "mat-unknown-tobikadachi-scale",
@@ -766,6 +793,7 @@
         "slot": "head",
         "defense": 1,
         "rarity": 3,
+        "family": "Anjanath",
         "recipe": [
             {
                 "materialId": "mat-anjanath-pelt",
@@ -800,6 +828,7 @@
         "slot": "chest",
         "defense": 1,
         "rarity": 3,
+        "family": "Anjanath",
         "recipe": [
             {
                 "materialId": "mat-anjanath-pelt",
@@ -834,6 +863,7 @@
         "slot": "legs",
         "defense": 1,
         "rarity": 3,
+        "family": "Anjanath",
         "recipe": [
             {
                 "materialId": "mat-anjanath-scale",
@@ -863,6 +893,7 @@
         "slot": "head",
         "defense": 2,
         "rarity": 4,
+        "family": "Rathalos",
         "recipe": [
             {
                 "materialId": "mat-rathalos-scale",
@@ -897,6 +928,7 @@
         "slot": "chest",
         "defense": 1,
         "rarity": 4,
+        "family": "Rathalos",
         "recipe": [
             {
                 "materialId": "mat-rathalos-scale",
@@ -931,6 +963,7 @@
         "slot": "legs",
         "defense": 1,
         "rarity": 4,
+        "family": "Rathalos",
         "recipe": [
             {
                 "materialId": "mat-rathalos-shell",

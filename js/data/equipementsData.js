@@ -494,7 +494,7 @@ const defaultEquipementsData = [
     icon: 'GreatSwordRarity1.png',
     types: [
       {
-        typeName: 'os', // Nom du type d'arme
+        typeName: 'Minerai', // Nom du type d'arme
         icon: 'WhiteBone.png',
         variants: [ // Différentes variantes de cette arme
           {
@@ -554,7 +554,7 @@ const defaultEquipementsData = [
         ],
       },
       {
-        typeName: 'Peaux', // Nom du type d'arme
+        typeName: 'Os', // Nom du type d'arme
         icon: 'WhiteBone.png',
         variants: [ // Différentes variantes de cette arme
           {

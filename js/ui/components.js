@@ -664,29 +664,48 @@ const Components = {
      * @returns {string} HTML string
      */
     renderWeaponsList(hunterId, weapons) {
-        // Group weapons by type
+        // Group weapons by type, then by family
         const weaponsByType = {};
         weapons.forEach(weapon => {
             if (!weaponsByType[weapon.type]) {
-                weaponsByType[weapon.type] = [];
+                weaponsByType[weapon.type] = {};
             }
-            weaponsByType[weapon.type].push(weapon);
+            const family = weapon.family || 'Autre';
+            if (!weaponsByType[weapon.type][family]) {
+                weaponsByType[weapon.type][family] = [];
+            }
+            weaponsByType[weapon.type][family].push(weapon);
         });
 
         let html = '';
+        let weaponTypeIndex = 0;
 
-        Object.keys(weaponsByType).forEach((type, index) => {
-            const isFirstOpen = index === 0; // Premier accordéon ouvert par défaut
+        Object.keys(weaponsByType).forEach((type) => {
+            const isFirstType = weaponTypeIndex === 0;
             html += `
                 <div class="forge-category accordion-category">
-                    <h4 class="forge-category-title accordion-header ${isFirstOpen ? 'active' : ''}" data-accordion="weapon-${index}">
+                    <h4 class="forge-category-title accordion-header ${isFirstType ? 'active' : ''}" data-accordion="weapon-type-${weaponTypeIndex}">
                         <span>${type}</span>
-                        <span class="accordion-icon">${isFirstOpen ? '▼' : '▶'}</span>
+                        <span class="accordion-icon">${isFirstType ? '▼' : '▶'}</span>
                     </h4>
-                    <div class="forge-grid accordion-content ${isFirstOpen ? 'open' : ''}" data-accordion-content="weapon-${index}">
+                    <div class="accordion-content ${isFirstType ? 'open' : ''}" data-accordion-content="weapon-type-${weaponTypeIndex}">
             `;
 
-            weaponsByType[type].forEach(weapon => {
+            let familyIndex = 0;
+            Object.keys(weaponsByType[type]).forEach((family) => {
+                const isFirstFamily = familyIndex === 0;
+                const familyWeapons = weaponsByType[type][family];
+
+                html += `
+                    <div class="forge-subcategory accordion-subcategory">
+                        <h5 class="forge-subcategory-title accordion-subheader ${isFirstFamily ? 'active' : ''}" data-accordion="weapon-${weaponTypeIndex}-${familyIndex}">
+                            <span>${family}</span>
+                            <span class="accordion-icon">${isFirstFamily ? '▼' : '▶'}</span>
+                        </h5>
+                        <div class="forge-grid accordion-content ${isFirstFamily ? 'open' : ''}" data-accordion-content="weapon-${weaponTypeIndex}-${familyIndex}">
+                `;
+
+                familyWeapons.forEach(weapon => {
                 const isCrafted = Hunters.isItemCrafted(hunterId, weapon.id, 'weapon');
                 const canCraft = Hunters.hasRequiredMaterials(hunterId, weapon.recipe);
                 const hunter = Hunters.getById(hunterId);
@@ -737,12 +756,20 @@ const Components = {
                         ` : '<div class="crafted-label">Déjà crafté</div>'}
                     </div>
                 `;
+                });
+
+                html += `
+                        </div>
+                    </div>
+                `;
+                familyIndex++;
             });
 
             html += `
                     </div>
                 </div>
             `;
+            weaponTypeIndex++;
         });
 
         return html;
@@ -755,33 +782,53 @@ const Components = {
      * @returns {string} HTML string
      */
     renderArmorsList(hunterId, armors) {
-        // Group by slot
-        const slots = {
-            head: armors.filter(a => a.slot === 'head'),
-            chest: armors.filter(a => a.slot === 'chest'),
-            legs: armors.filter(a => a.slot === 'legs')
+        // Group by slot, then by family
+        const slotNames = {
+            head: 'Casques',
+            chest: 'Plastrons',
+            legs: 'Jambières'
         };
 
+        const armorsBySlot = {};
+        ['head', 'chest', 'legs'].forEach(slot => {
+            armorsBySlot[slot] = {};
+            armors.filter(a => a.slot === slot).forEach(armor => {
+                const family = armor.family || 'Autre';
+                if (!armorsBySlot[slot][family]) {
+                    armorsBySlot[slot][family] = [];
+                }
+                armorsBySlot[slot][family].push(armor);
+            });
+        });
+
         let html = '';
+        let slotIndex = 0;
 
-        Object.entries(slots).forEach(([slot, pieces], index) => {
-            const slotNames = {
-                head: 'Casques',
-                chest: 'Plastrons',
-                legs: 'Jambières'
-            };
-
-            const isFirstOpen = index === 0; // Premier accordéon ouvert par défaut
+        Object.entries(armorsBySlot).forEach(([slot, families]) => {
+            const isFirstSlot = slotIndex === 0;
             html += `
                 <div class="forge-category accordion-category">
-                    <h4 class="forge-category-title accordion-header ${isFirstOpen ? 'active' : ''}" data-accordion="armor-${slot}">
+                    <h4 class="forge-category-title accordion-header ${isFirstSlot ? 'active' : ''}" data-accordion="armor-slot-${slotIndex}">
                         <span>${slotNames[slot]}</span>
-                        <span class="accordion-icon">${isFirstOpen ? '▼' : '▶'}</span>
+                        <span class="accordion-icon">${isFirstSlot ? '▼' : '▶'}</span>
                     </h4>
-                    <div class="forge-grid accordion-content ${isFirstOpen ? 'open' : ''}" data-accordion-content="armor-${slot}">
+                    <div class="accordion-content ${isFirstSlot ? 'open' : ''}" data-accordion-content="armor-slot-${slotIndex}">
             `;
 
-            pieces.forEach(armor => {
+            let familyIndex = 0;
+            Object.entries(families).forEach(([family, pieces]) => {
+                const isFirstFamily = familyIndex === 0;
+
+                html += `
+                    <div class="forge-subcategory accordion-subcategory">
+                        <h5 class="forge-subcategory-title accordion-subheader ${isFirstFamily ? 'active' : ''}" data-accordion="armor-${slotIndex}-${familyIndex}">
+                            <span>${family}</span>
+                            <span class="accordion-icon">${isFirstFamily ? '▼' : '▶'}</span>
+                        </h5>
+                        <div class="forge-grid accordion-content ${isFirstFamily ? 'open' : ''}" data-accordion-content="armor-${slotIndex}-${familyIndex}">
+                `;
+
+                pieces.forEach(armor => {
                 const isCrafted = Hunters.isItemCrafted(hunterId, armor.id, 'armor');
                 const canCraft = Hunters.hasRequiredMaterials(hunterId, armor.recipe);
                 const hunter = Hunters.getById(hunterId);
@@ -827,12 +874,20 @@ const Components = {
                         ` : '<div class="crafted-label">Déjà crafté</div>'}
                     </div>
                 `;
+                });
+
+                html += `
+                        </div>
+                    </div>
+                `;
+                familyIndex++;
             });
 
             html += `
                     </div>
                 </div>
             `;
+            slotIndex++;
         });
 
         return html;
@@ -1142,7 +1197,7 @@ const Components = {
             });
         });
 
-        // Add accordion toggle listeners
+        // Add accordion toggle listeners for main headers
         container.querySelectorAll('.accordion-header').forEach(header => {
             header.addEventListener('click', () => {
                 const accordionId = header.dataset.accordion;
@@ -1155,6 +1210,22 @@ const Components = {
 
                 // Update icon
                 icon.textContent = header.classList.contains('active') ? '▼' : '▶';
+            });
+        });
+
+        // Add accordion toggle listeners for subheaders (families)
+        container.querySelectorAll('.accordion-subheader').forEach(subheader => {
+            subheader.addEventListener('click', () => {
+                const accordionId = subheader.dataset.accordion;
+                const content = container.querySelector(`[data-accordion-content="${accordionId}"]`);
+                const icon = subheader.querySelector('.accordion-icon');
+
+                // Toggle active state
+                subheader.classList.toggle('active');
+                content.classList.toggle('open');
+
+                // Update icon
+                icon.textContent = subheader.classList.contains('active') ? '▼' : '▶';
             });
         });
     },

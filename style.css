@@ -1953,6 +1953,62 @@ a:hover {
     padding: var(--space-md);
 }
 
+/* ===== Nested Accordion (Family Subcategories) ===== */
+.forge-subcategory {
+    margin-left: var(--space-md);
+    padding-left: var(--space-md);
+    border-left: 2px solid var(--color-border-light);
+    margin-bottom: var(--space-md);
+}
+
+.forge-subcategory:last-child {
+    margin-bottom: 0;
+}
+
+.forge-subcategory-title,
+.accordion-subheader {
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-sm) var(--space-md);
+    background: var(--color-bg-tertiary);
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--space-sm);
+    font-size: 0.95rem;
+    font-weight: var(--font-weight-medium);
+    transition: all 0.2s ease;
+}
+
+.accordion-subheader:hover {
+    background: var(--color-bg-secondary);
+    border-color: var(--color-primary-dark);
+}
+
+.accordion-subheader.active {
+    background: var(--color-bg-secondary);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-color: transparent;
+}
+
+.accordion-subheader .accordion-icon {
+    font-size: 10px;
+    color: var(--color-text-secondary);
+}
+
+/* Nested accordion content - no border to avoid double borders */
+.forge-subcategory > .accordion-content {
+    border: none;
+    border-radius: 0;
+}
+
+.forge-subcategory > .accordion-content.open {
+    padding: var(--space-sm) 0;
+}
+
 /* ===== Settings Modal Styles ===== */
 .settings-modal {
     padding: var(--space-md);

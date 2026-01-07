@@ -19,6 +19,7 @@ const GameData = {
             "d4": 0
         },
         "rarity": 1,
+        "family": "os",
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -41,6 +42,7 @@ const GameData = {
             "d4": 0
         },
         "rarity": 2,
+        "family": "os",
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -71,6 +73,7 @@ const GameData = {
             "d4": 0
         },
         "rarity": 3,
+        "family": "os",
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -105,6 +108,7 @@ const GameData = {
             "d4": 0
         },
         "rarity": 2,
+        "family": "Peaux",
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -127,6 +131,7 @@ const GameData = {
             "d4": 0
         },
         "rarity": 2,
+        "family": "Peaux",
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -157,6 +162,7 @@ const GameData = {
             "d4": 0
         },
         "rarity": 3,
+        "family": "Peaux",
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -187,6 +193,7 @@ const GameData = {
             "d4": 0
         },
         "rarity": 3,
+        "family": "Great Jagras",
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -221,6 +228,7 @@ const GameData = {
             "d4": 0
         },
         "rarity": 4,
+        "family": "Great Jagras",
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -255,6 +263,7 @@ const GameData = {
             "d4": 0
         },
         "rarity": 3,
+        "family": "Barroth",
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -285,6 +294,7 @@ const GameData = {
             "d4": 0
         },
         "rarity": 4,
+        "family": "Barroth",
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -315,6 +325,7 @@ const GameData = {
             "d4": 0
         },
         "rarity": 3,
+        "family": "Pukei-Pukei",
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -349,6 +360,7 @@ const GameData = {
             "d4": 0
         },
         "rarity": 4,
+        "family": "Pukei-Pukei",
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -383,6 +395,7 @@ const GameData = {
             "d4": 0
         },
         "rarity": 3,
+        "family": "Ratalos",
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -417,6 +430,7 @@ const GameData = {
             "d4": 0
         },
         "rarity": 4,
+        "family": "Ratalos",
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -451,6 +465,7 @@ const GameData = {
             "d4": 0
         },
         "rarity": 4,
+        "family": "Kushala daora",
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -481,6 +496,7 @@ const GameData = {
             "d4": 0
         },
         "rarity": 5,
+        "family": "Kushala daora",
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -511,6 +527,7 @@ const GameData = {
             "d4": 0
         },
         "rarity": 4,
+        "family": "Nergigante",
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -541,6 +558,7 @@ const GameData = {
             "d4": 0
         },
         "rarity": 5,
+        "family": "Nergigante",
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -571,6 +589,7 @@ const GameData = {
             "d4": 0
         },
         "rarity": 1,
+        "family": "Mineral",
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -593,6 +612,7 @@ const GameData = {
             "d4": 0
         },
         "rarity": 2,
+        "family": "Mineral",
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -623,6 +643,7 @@ const GameData = {
             "d4": 0
         },
         "rarity": 3,
+        "family": "Mineral",
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -657,6 +678,7 @@ const GameData = {
             "d4": 0
         },
         "rarity": 2,
+        "family": "Bone",
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -679,6 +701,7 @@ const GameData = {
             "d4": 0
         },
         "rarity": 2,
+        "family": "Bone",
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -709,6 +732,7 @@ const GameData = {
             "d4": 0
         },
         "rarity": 3,
+        "family": "Bone",
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -739,6 +763,7 @@ const GameData = {
             "d4": 0
         },
         "rarity": 3,
+        "family": "Barroth",
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -769,6 +794,7 @@ const GameData = {
             "d4": 0
         },
         "rarity": 4,
+        "family": "Barroth",
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -799,6 +825,7 @@ const GameData = {
             "d4": 0
         },
         "rarity": 3,
+        "family": "Kulu Ya Ku",
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -833,6 +860,7 @@ const GameData = {
             "d4": 0
         },
         "rarity": 4,
+        "family": "Kulu Ya Ku",
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -867,6 +895,7 @@ const GameData = {
             "d4": 0
         },
         "rarity": 3,
+        "family": "Pukei Pukei",
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -897,6 +926,7 @@ const GameData = {
             "d4": 0
         },
         "rarity": 4,
+        "family": "Pukei Pukei",
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -931,6 +961,7 @@ const GameData = {
             "d4": 0
         },
         "rarity": 3,
+        "family": "Anjanath",
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -961,6 +992,7 @@ const GameData = {
             "d4": 0
         },
         "rarity": 4,
+        "family": "Anjanath",
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -995,6 +1027,7 @@ const GameData = {
             "d4": 0
         },
         "rarity": 4,
+        "family": "Diablos",
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -1029,6 +1062,7 @@ const GameData = {
             "d4": 0
         },
         "rarity": 5,
+        "family": "Diablos",
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -1063,6 +1097,7 @@ const GameData = {
             "d4": 0
         },
         "rarity": 4,
+        "family": "Kushala Daora",
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -1097,6 +1132,7 @@ const GameData = {
             "d4": 0
         },
         "rarity": 5,
+        "family": "Kushala Daora",
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -1127,6 +1163,7 @@ const GameData = {
             "d4": 0
         },
         "rarity": 5,
+        "family": "Nergigante",
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -1161,6 +1198,7 @@ const GameData = {
             "d4": 0
         },
         "rarity": 5,
+        "family": "Nergigante",
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -1191,6 +1229,7 @@ const GameData = {
             "d4": 0
         },
         "rarity": 1,
+        "family": "Bone Shotel",
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -1213,6 +1252,7 @@ const GameData = {
             "d4": 0
         },
         "rarity": 1,
+        "family": "Bone Shotel",
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -1235,6 +1275,7 @@ const GameData = {
             "d4": 0
         },
         "rarity": 1,
+        "family": "Iron",
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -1257,6 +1298,7 @@ const GameData = {
             "d4": 0
         },
         "rarity": 3,
+        "family": "Kulu Ya Ku",
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -1291,6 +1333,7 @@ const GameData = {
             "d4": 0
         },
         "rarity": 4,
+        "family": "Kulu Ya Ku",
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -1325,6 +1368,7 @@ const GameData = {
             "d4": 0
         },
         "rarity": 3,
+        "family": "Pukei Pukei",
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -1355,6 +1399,7 @@ const GameData = {
             "d4": 0
         },
         "rarity": 4,
+        "family": "Pukei Pukei",
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -1389,6 +1434,7 @@ const GameData = {
             "d4": 0
         },
         "rarity": 3,
+        "family": "Anjanath",
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -1419,6 +1465,7 @@ const GameData = {
             "d4": 0
         },
         "rarity": 4,
+        "family": "Anjanath",
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -1453,6 +1500,7 @@ const GameData = {
             "d4": 0
         },
         "rarity": 4,
+        "family": "Diablos",
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -1487,6 +1535,7 @@ const GameData = {
             "d4": 0
         },
         "rarity": 5,
+        "family": "Diablos",
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -1521,6 +1570,7 @@ const GameData = {
             "d4": 0
         },
         "rarity": 5,
+        "family": "Nergigante",
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -1555,6 +1605,7 @@ const GameData = {
             "d4": 0
         },
         "rarity": 5,
+        "family": "Nergigante",
         "affinity": 0,
         "element": null,
         "skills": [],

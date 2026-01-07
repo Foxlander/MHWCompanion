@@ -201,6 +201,34 @@ function extractRarity(iconFilename) {
     return 1; // Default to rarity 1
 }
 
+/**
+ * Extract family from weapon/armor name
+ * @param {string} name - Item name (e.g., "Bone Blade", "Jagras Helm")
+ * @returns {string} Family name
+ */
+function extractFamily(name) {
+    // Common patterns for weapon/armor families
+    const families = [
+        'Iron', 'Bone', 'Jagras', 'Barroth', 'Pukei', 'Tobi', 'Kadachi',
+        'Anjanath', 'Anja', 'Jyuratodus', 'Jyura', 'Kulu', 'Diablos',
+        'Rathalos', 'Azure', 'Black', 'Daora', 'Kushala', 'Teostra',
+        'Nergigante', 'Nergal', 'Leather', 'Chainmail', 'Alloy',
+        'Buster', 'Chrome', 'Carapace', 'Blooming', 'Datura',
+        'Flame', 'Red', 'Icesteel', 'Purgation', 'Fossil', 'Grand',
+        'Crushing', 'Buon', 'Blazing', 'Obliteration', 'First', 'Last',
+        'Extermination'
+    ];
+
+    for (const family of families) {
+        if (name.includes(family)) {
+            return family;
+        }
+    }
+
+    // Default: use first word of name
+    return name.split(' ')[0];
+}
+
 // Convert armor
 const armor = [];
 const armorData = defaultEquipementsData.find(item => item.name === 'Armor');
@@ -235,6 +263,7 @@ if (armorData) {
                 slot: slot,
                 defense: variant.physicalDefense || variant.defense || 0,
                 rarity: extractRarity(variant.icon),
+                family: type.typeName || extractFamily(variant.name),
                 recipe: convertMaterials(variant.materials)
             };
 
@@ -291,6 +320,7 @@ defaultEquipementsData.forEach(equipmentCategory => {
                         d4: variant.damage4 || 0
                     },
                     rarity: extractRarity(variant.icon),
+                    family: type.typeName || extractFamily(variant.name),
                     affinity: variant.affinity || 0,
                     element: variant.element || null,
                     skills: [],
