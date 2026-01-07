@@ -18,12 +18,19 @@ const Components = {
         const totalStats = Hunters.calculateTotalStats(hunter.id);
         const skills = Hunters.calculateSkills(hunter.id);
 
-        // Build weapon info
+        // Build weapon info with dice values
         const weaponInfo = hunter.equipment.weapon
             ? `<div class="weapon-info">
                 <span class="weapon-icon">⚔️</span>
                 <span class="weapon-name">${Helpers.escapeHtml(hunter.equipment.weapon.name)}</span>
-                <span class="weapon-attack">ATK ${hunter.equipment.weapon.attack}</span>
+                ${hunter.equipment.weapon.damage ? `
+                    <div class="weapon-dice">
+                        <span class="dice-mini d1">${hunter.equipment.weapon.damage.d1}</span>
+                        <span class="dice-mini d2">${hunter.equipment.weapon.damage.d2}</span>
+                        <span class="dice-mini d3">${hunter.equipment.weapon.damage.d3}</span>
+                        <span class="dice-mini d4">${hunter.equipment.weapon.damage.d4}</span>
+                    </div>
+                ` : ''}
                </div>`
             : '<div class="weapon-info empty">Aucune arme</div>';
 
@@ -53,11 +60,6 @@ const Components = {
                         <span class="stat-icon">⚡</span>
                         <span class="stat-value">${totalStats.stamina}</span>
                         <span class="stat-label">END</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-icon">⚔️</span>
-                        <span class="stat-value">${totalStats.attack}</span>
-                        <span class="stat-label">ATK</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-icon">🛡️</span>
@@ -267,25 +269,11 @@ const Components = {
                                min="1" max="999">
                     </div>
                 </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="hunter-attack">Attaque</label>
-                        <input type="number" id="hunter-attack" name="attack"
-                               value="${hunter?.stats.attack || 10}"
-                               min="0" max="999">
-                    </div>
-                    <div class="form-group">
-                        <label for="hunter-defense">Défense</label>
-                        <input type="number" id="hunter-defense" name="defense"
-                               value="${hunter?.stats.defense || 10}"
-                               min="0" max="999">
-                    </div>
-                </div>
                 <div class="form-group">
-                    <label for="hunter-affinity">Affinité (%)</label>
-                    <input type="number" id="hunter-affinity" name="affinity"
-                           value="${hunter?.stats.affinity || 0}"
-                           min="-100" max="100">
+                    <label for="hunter-defense">Défense</label>
+                    <input type="number" id="hunter-defense" name="defense"
+                           value="${hunter?.stats.defense || 10}"
+                           min="0" max="999">
                 </div>
             </div>
             <div class="form-section">
@@ -422,9 +410,7 @@ const Components = {
             stats: {
                 health: parseInt(formData.get('health')) || 100,
                 stamina: parseInt(formData.get('stamina')) || 100,
-                attack: parseInt(formData.get('attack')) || 10,
-                defense: parseInt(formData.get('defense')) || 10,
-                affinity: parseInt(formData.get('affinity')) || 0
+                defense: parseInt(formData.get('defense')) || 10
             },
             equipment: {
                 weapon: formData.get('weapon')
@@ -653,6 +639,22 @@ const Components = {
                 }
             });
         });
+
+        // Add accordion toggle listeners
+        container.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const accordionId = header.dataset.accordion;
+                const content = container.querySelector(`[data-accordion-content="${accordionId}"]`);
+                const icon = header.querySelector('.accordion-icon');
+
+                // Toggle active state
+                header.classList.toggle('active');
+                content.classList.toggle('open');
+
+                // Update icon
+                icon.textContent = header.classList.contains('active') ? '▼' : '▶';
+            });
+        });
     },
 
     /**
@@ -662,45 +664,88 @@ const Components = {
      * @returns {string} HTML string
      */
     renderWeaponsList(hunterId, weapons) {
-        return weapons.map(weapon => {
-            const isCrafted = Hunters.isItemCrafted(hunterId, weapon.id, 'weapon');
-            const canCraft = Hunters.hasRequiredMaterials(hunterId, weapon.recipe);
+        // Group weapons by type
+        const weaponsByType = {};
+        weapons.forEach(weapon => {
+            if (!weaponsByType[weapon.type]) {
+                weaponsByType[weapon.type] = [];
+            }
+            weaponsByType[weapon.type].push(weapon);
+        });
 
-            return `
-                <div class="craftable-item ${isCrafted ? 'crafted' : ''}">
-                    <div class="item-header">
-                        <span class="item-name">${Helpers.escapeHtml(weapon.name)}</span>
-                        ${isCrafted ? '<span class="crafted-badge">✓ Crafté</span>' : ''}
-                    </div>
-                    <div class="item-stats">
-                        <span>Type: ${weapon.type}</span>
-                        <span>ATK: ${weapon.attack}</span>
-                    </div>
-                    <div class="item-recipe">
-                        <strong>Recette:</strong>
-                        ${weapon.recipe.map(req => {
-                            const material = State.getGameData().materials.find(m => m.id === req.materialId);
-                            const hunter = Hunters.getById(hunterId);
-                            const owned = hunter.chest.find(m => m.id === req.materialId);
-                            const hasEnough = owned && owned.quantity >= req.quantity;
+        let html = '';
 
-                            return `<span class="recipe-item ${hasEnough ? 'has-enough' : 'missing'}">
-                                ${material.name} ${owned?.quantity || 0}/${req.quantity}
-                            </span>`;
-                        }).join('')}
+        Object.keys(weaponsByType).forEach((type, index) => {
+            const isFirstOpen = index === 0; // Premier accordéon ouvert par défaut
+            html += `
+                <div class="forge-category accordion-category">
+                    <h4 class="forge-category-title accordion-header ${isFirstOpen ? 'active' : ''}" data-accordion="weapon-${index}">
+                        <span>${type}</span>
+                        <span class="accordion-icon">${isFirstOpen ? '▼' : '▶'}</span>
+                    </h4>
+                    <div class="forge-grid accordion-content ${isFirstOpen ? 'open' : ''}" data-accordion-content="weapon-${index}">
+            `;
+
+            weaponsByType[type].forEach(weapon => {
+                const isCrafted = Hunters.isItemCrafted(hunterId, weapon.id, 'weapon');
+                const canCraft = Hunters.hasRequiredMaterials(hunterId, weapon.recipe);
+                const hunter = Hunters.getById(hunterId);
+
+                // Use IconMapping to get the correct weapon icon
+                const weaponImage = IconMapping.getWeaponIcon(weapon.type, weapon.attack);
+
+                html += `
+                    <div class="forge-card ${isCrafted ? 'crafted' : ''} ${canCraft && !isCrafted ? 'craftable' : ''}">
+                        <div class="forge-card-image">
+                            <img src="${weaponImage}" alt="${Helpers.escapeHtml(weapon.name)}" onerror="this.src='assets/icon.png'">
+                            ${isCrafted ? '<span class="crafted-badge">✓</span>' : ''}
+                        </div>
+                        <div class="forge-card-name">${Helpers.escapeHtml(weapon.name)}</div>
+                        <div class="forge-card-stats">
+                            ${weapon.damage ? `
+                                <span class="dice-badge d1">${weapon.damage.d1}</span>
+                                <span class="dice-badge d2">${weapon.damage.d2}</span>
+                                <span class="dice-badge d3">${weapon.damage.d3}</span>
+                                <span class="dice-badge d4">${weapon.damage.d4}</span>
+                            ` : ''}
+                        </div>
+                        <div class="forge-card-recipe">
+                            ${weapon.recipe.slice(0, 3).map(req => {
+                                const material = State.getGameData().materials.find(m => m.id === req.materialId);
+                                const owned = hunter.chest.find(m => m.id === req.materialId);
+                                const hasEnough = owned && owned.quantity >= req.quantity;
+                                // Use IconMapping for material icons in recipes
+                                const matImage = material ? IconMapping.getMaterialIcon(material.icon) : 'assets/icon.png';
+
+                                return `
+                                    <div class="recipe-mat ${hasEnough ? 'available' : 'missing'}">
+                                        <img src="${matImage}" alt="${material?.name || 'Unknown'}" onerror="this.src='assets/icon.png'">
+                                        <span>${owned?.quantity || 0}/${req.quantity}</span>
+                                    </div>
+                                `;
+                            }).join('')}
+                            ${weapon.recipe.length > 3 ? `<span class="more-mats">+${weapon.recipe.length - 3}</span>` : ''}
+                        </div>
+                        ${!isCrafted ? `
+                            <button class="btn-craft"
+                                    data-action="craft"
+                                    data-item-id="${weapon.id}"
+                                    data-item-type="weapon"
+                                    ${!canCraft ? 'disabled' : ''}>
+                                ${canCraft ? 'Crafter' : 'Manque matériaux'}
+                            </button>
+                        ` : '<div class="crafted-label">Déjà crafté</div>'}
                     </div>
-                    ${!isCrafted ? `
-                        <button class="btn btn-sm btn-primary"
-                                data-action="craft"
-                                data-item-id="${weapon.id}"
-                                data-item-type="weapon"
-                                ${!canCraft ? 'disabled' : ''}>
-                            ${canCraft ? 'Crafter' : 'Matériaux insuffisants'}
-                        </button>
-                    ` : ''}
+                `;
+            });
+
+            html += `
+                    </div>
                 </div>
             `;
-        }).join('');
+        });
+
+        return html;
     },
 
     /**
@@ -714,62 +759,80 @@ const Components = {
         const slots = {
             head: armors.filter(a => a.slot === 'head'),
             chest: armors.filter(a => a.slot === 'chest'),
-            arms: armors.filter(a => a.slot === 'arms'),
-            waist: armors.filter(a => a.slot === 'waist'),
             legs: armors.filter(a => a.slot === 'legs')
         };
 
         let html = '';
 
-        Object.entries(slots).forEach(([slot, pieces]) => {
+        Object.entries(slots).forEach(([slot, pieces], index) => {
             const slotNames = {
                 head: 'Casques',
-                chest: 'Armures',
-                arms: 'Brassards',
-                waist: 'Ceintures',
+                chest: 'Plastrons',
                 legs: 'Jambières'
             };
 
-            html += `<h5>${slotNames[slot]}</h5>`;
+            const isFirstOpen = index === 0; // Premier accordéon ouvert par défaut
+            html += `
+                <div class="forge-category accordion-category">
+                    <h4 class="forge-category-title accordion-header ${isFirstOpen ? 'active' : ''}" data-accordion="armor-${slot}">
+                        <span>${slotNames[slot]}</span>
+                        <span class="accordion-icon">${isFirstOpen ? '▼' : '▶'}</span>
+                    </h4>
+                    <div class="forge-grid accordion-content ${isFirstOpen ? 'open' : ''}" data-accordion-content="armor-${slot}">
+            `;
 
             pieces.forEach(armor => {
                 const isCrafted = Hunters.isItemCrafted(hunterId, armor.id, 'armor');
                 const canCraft = Hunters.hasRequiredMaterials(hunterId, armor.recipe);
+                const hunter = Hunters.getById(hunterId);
+
+                // Use IconMapping to get the correct armor icon
+                const armorImage = IconMapping.getArmorIcon(armor.slot, armor.defense);
 
                 html += `
-                    <div class="craftable-item ${isCrafted ? 'crafted' : ''}">
-                        <div class="item-header">
-                            <span class="item-name">${Helpers.escapeHtml(armor.name)}</span>
-                            ${isCrafted ? '<span class="crafted-badge">✓ Crafté</span>' : ''}
+                    <div class="forge-card ${isCrafted ? 'crafted' : ''} ${canCraft && !isCrafted ? 'craftable' : ''}">
+                        <div class="forge-card-image">
+                            <img src="${armorImage}" alt="${Helpers.escapeHtml(armor.name)}" onerror="this.src='assets/icon.png'">
+                            ${isCrafted ? '<span class="crafted-badge">✓</span>' : ''}
                         </div>
-                        <div class="item-stats">
-                            <span>DEF: ${armor.defense}</span>
+                        <div class="forge-card-name">${Helpers.escapeHtml(armor.name)}</div>
+                        <div class="forge-card-stats">
+                            <span class="stat-badge">DEF ${armor.defense}</span>
                         </div>
-                        <div class="item-recipe">
-                            <strong>Recette:</strong>
-                            ${armor.recipe.map(req => {
+                        <div class="forge-card-recipe">
+                            ${armor.recipe.slice(0, 3).map(req => {
                                 const material = State.getGameData().materials.find(m => m.id === req.materialId);
-                                const hunter = Hunters.getById(hunterId);
                                 const owned = hunter.chest.find(m => m.id === req.materialId);
                                 const hasEnough = owned && owned.quantity >= req.quantity;
+                                // Use IconMapping for material icons in recipes
+                                const matImage = material ? IconMapping.getMaterialIcon(material.icon) : 'assets/icon.png';
 
-                                return `<span class="recipe-item ${hasEnough ? 'has-enough' : 'missing'}">
-                                    ${material.name} ${owned?.quantity || 0}/${req.quantity}
-                                </span>`;
+                                return `
+                                    <div class="recipe-mat ${hasEnough ? 'available' : 'missing'}">
+                                        <img src="${matImage}" alt="${material?.name || 'Unknown'}" onerror="this.src='assets/icon.png'">
+                                        <span>${owned?.quantity || 0}/${req.quantity}</span>
+                                    </div>
+                                `;
                             }).join('')}
+                            ${armor.recipe.length > 3 ? `<span class="more-mats">+${armor.recipe.length - 3}</span>` : ''}
                         </div>
                         ${!isCrafted ? `
-                            <button class="btn btn-sm btn-primary"
+                            <button class="btn-craft"
                                     data-action="craft"
                                     data-item-id="${armor.id}"
                                     data-item-type="armor"
                                     ${!canCraft ? 'disabled' : ''}>
-                                ${canCraft ? 'Crafter' : 'Matériaux insuffisants'}
+                                ${canCraft ? 'Crafter' : 'Manque matériaux'}
                             </button>
-                        ` : ''}
+                        ` : '<div class="crafted-label">Déjà crafté</div>'}
                     </div>
                 `;
             });
+
+            html += `
+                    </div>
+                </div>
+            `;
         });
 
         return html;
@@ -790,25 +853,39 @@ const Components = {
                 <h4>Équipement actuel</h4>
                 <div class="current-equipment">
                     <div class="equipment-slot">
-                        <strong>Arme:</strong> ${hunter.equipment.weapon?.name || 'Aucune'}
+                        <strong>Arme:</strong>
+                        <select class="equipment-select" data-slot="weapon" data-hunter-id="${hunterId}">
+                            <option value="">Aucune</option>
+                            ${this.renderWeaponOptions(hunterId, hunter.equipment.weapon?.id)}
+                        </select>
                     </div>
                     <div class="equipment-slot">
-                        <strong>Tête:</strong> ${hunter.equipment.armor.head?.name || 'Aucune'}
+                        <strong>Tête:</strong>
+                        <select class="equipment-select" data-slot="head" data-hunter-id="${hunterId}">
+                            <option value="">Aucune</option>
+                            ${this.renderArmorOptions(hunterId, 'head', hunter.equipment.armor.head?.id)}
+                        </select>
                     </div>
                     <div class="equipment-slot">
-                        <strong>Torse:</strong> ${hunter.equipment.armor.chest?.name || 'Aucune'}
+                        <strong>Torse:</strong>
+                        <select class="equipment-select" data-slot="chest" data-hunter-id="${hunterId}">
+                            <option value="">Aucune</option>
+                            ${this.renderArmorOptions(hunterId, 'chest', hunter.equipment.armor.chest?.id)}
+                        </select>
                     </div>
                     <div class="equipment-slot">
-                        <strong>Bras:</strong> ${hunter.equipment.armor.arms?.name || 'Aucune'}
+                        <strong>Jambes:</strong>
+                        <select class="equipment-select" data-slot="legs" data-hunter-id="${hunterId}">
+                            <option value="">Aucune</option>
+                            ${this.renderArmorOptions(hunterId, 'legs', hunter.equipment.armor.legs?.id)}
+                        </select>
                     </div>
                     <div class="equipment-slot">
-                        <strong>Taille:</strong> ${hunter.equipment.armor.waist?.name || 'Aucune'}
-                    </div>
-                    <div class="equipment-slot">
-                        <strong>Jambes:</strong> ${hunter.equipment.armor.legs?.name || 'Aucune'}
-                    </div>
-                    <div class="equipment-slot">
-                        <strong>Charme:</strong> ${hunter.equipment.charm?.name || 'Aucun'}
+                        <strong>Charme:</strong>
+                        <select class="equipment-select" data-slot="charm" data-hunter-id="${hunterId}">
+                            <option value="">Aucun</option>
+                            ${this.renderCharmOptions(hunterId, hunter.equipment.charm?.id)}
+                        </select>
                     </div>
                 </div>
 
@@ -823,16 +900,8 @@ const Components = {
                         <span>${totalStats.stamina}</span>
                     </div>
                     <div class="stat-row">
-                        <span>Attaque:</span>
-                        <span>${totalStats.attack}</span>
-                    </div>
-                    <div class="stat-row">
                         <span>Défense:</span>
                         <span>${totalStats.defense}</span>
-                    </div>
-                    <div class="stat-row">
-                        <span>Affinité:</span>
-                        <span>${totalStats.affinity}%</span>
                     </div>
                 </div>
 
@@ -847,14 +916,94 @@ const Components = {
                         `).join('')}
                     </div>
                 ` : ''}
-
-                <button class="btn btn-primary" onclick="Components.showHunterForm('${hunterId}'); Modal.close();">
-                    Modifier l'équipement
-                </button>
             </div>
         `;
 
         container.innerHTML = html;
+
+        // Add event listeners for equipment selection
+        container.querySelectorAll('.equipment-select').forEach(select => {
+            select.addEventListener('change', (e) => {
+                const slot = e.target.dataset.slot;
+                const itemId = e.target.value;
+                const hunterId = e.target.dataset.hunterId;
+                const gameData = State.getGameData();
+
+                if (slot === 'weapon') {
+                    const weapon = itemId ? gameData.weapons.find(w => w.id === itemId) : null;
+                    Hunters.equipWeapon(hunterId, weapon);
+                } else if (slot === 'charm') {
+                    const charm = itemId ? gameData.charms.find(c => c.id === itemId) : null;
+                    Hunters.equipCharm(hunterId, charm);
+                } else {
+                    const armor = itemId ? gameData.armor.find(a => a.id === itemId) : null;
+                    Hunters.equipArmor(hunterId, slot, armor);
+                }
+
+                // Re-render the equipment tab to update stats
+                this.renderEquipmentTab(hunterId, container);
+            });
+        });
+    },
+
+    /**
+     * Render weapon options for dropdown (only crafted weapons)
+     * @param {string} hunterId - Hunter ID
+     * @param {string} selectedId - Currently selected weapon ID
+     * @returns {string} HTML options
+     */
+    renderWeaponOptions(hunterId, selectedId) {
+        const gameData = State.getGameData();
+        const craftedWeapons = gameData.weapons.filter(weapon =>
+            Hunters.isItemCrafted(hunterId, weapon.id, 'weapon')
+        );
+
+        return craftedWeapons.map(weapon => {
+            const diceStr = weapon.damage ?
+                `${weapon.damage.d1}/${weapon.damage.d2}/${weapon.damage.d3}/${weapon.damage.d4}` :
+                '';
+            return `
+                <option value="${weapon.id}" ${weapon.id === selectedId ? 'selected' : ''}>
+                    ${Helpers.escapeHtml(weapon.name)} ${diceStr ? `(${diceStr})` : ''}
+                </option>
+            `;
+        }).join('');
+    },
+
+    /**
+     * Render armor options for dropdown (only crafted armor of specific slot)
+     * @param {string} hunterId - Hunter ID
+     * @param {string} slot - Armor slot (head, chest, legs, etc.)
+     * @param {string} selectedId - Currently selected armor ID
+     * @returns {string} HTML options
+     */
+    renderArmorOptions(hunterId, slot, selectedId) {
+        const gameData = State.getGameData();
+        const craftedArmor = gameData.armor.filter(armor =>
+            armor.slot === slot && Hunters.isItemCrafted(hunterId, armor.id, 'armor')
+        );
+
+        return craftedArmor.map(armor => `
+            <option value="${armor.id}" ${armor.id === selectedId ? 'selected' : ''}>
+                ${Helpers.escapeHtml(armor.name)} (DEF ${armor.defense})
+            </option>
+        `).join('');
+    },
+
+    /**
+     * Render charm options for dropdown
+     * @param {string} hunterId - Hunter ID
+     * @param {string} selectedId - Currently selected charm ID
+     * @returns {string} HTML options
+     */
+    renderCharmOptions(hunterId, selectedId) {
+        const gameData = State.getGameData();
+        // For now, show all charms (they are not craftable in the current system)
+        return gameData.charms.map(charm => `
+            <option value="${charm.id}" ${charm.id === selectedId ? 'selected' : ''}>
+                ${Helpers.escapeHtml(charm.name)}
+            </option>
+        `).join('');
     },
 
     /**
@@ -866,50 +1015,78 @@ const Components = {
         const hunter = Hunters.getById(hunterId);
         const gameData = State.getGameData();
 
-        let html = '<div class="chest-view-page"><h2>Coffre de matériaux</h2><div class="materials-list">';
-
-        // Show all available materials with quantities
+        // Group materials by category
+        const materialsByCategory = {};
         gameData.materials.forEach(material => {
-            const owned = hunter.chest.find(m => m.id === material.id);
-            const quantity = owned ? owned.quantity : 0;
+            if (!materialsByCategory[material.category]) {
+                materialsByCategory[material.category] = [];
+            }
+            materialsByCategory[material.category].push(material);
+        });
+
+        let html = '<div class="chest-view-page"><h2>Coffre de matériaux</h2>';
+
+        // Render each category
+        Object.keys(materialsByCategory).forEach(category => {
+            html += `
+                <div class="materials-category">
+                    <h3 class="category-title">${Helpers.escapeHtml(category)}</h3>
+                    <div class="materials-grid">
+            `;
+
+            materialsByCategory[category].forEach(material => {
+                const owned = hunter.chest.find(m => m.id === material.id);
+                const quantity = owned ? owned.quantity : 0;
+                // Use IconMapping to get the correct icon path
+                const imagePath = IconMapping.getMaterialIcon(material.icon);
+
+                html += `
+                    <div class="material-card ${quantity === 0 ? 'empty' : ''}" data-material-id="${material.id}">
+                        <div class="material-image">
+                            <img src="${imagePath}" alt="${Helpers.escapeHtml(material.name)}" onerror="this.src='assets/icon.png'">
+                            <span class="material-quantity-badge">${quantity}</span>
+                        </div>
+                        <div class="material-name">${Helpers.escapeHtml(material.name)}</div>
+                        <div class="material-controls">
+                            <button class="btn-decrement" data-action="decrement" ${quantity === 0 ? 'disabled' : ''}>−</button>
+                            <button class="btn-increment" data-action="increment">+</button>
+                        </div>
+                    </div>
+                `;
+            });
 
             html += `
-                <div class="material-item" data-material-id="${material.id}">
-                    <div class="material-info">
-                        <h4>${Helpers.escapeHtml(material.name)}</h4>
-                        <span class="material-rarity rarity-${material.rarity}">⭐ ${material.rarity}</span>
-                    </div>
-                    <span class="material-quantity">${quantity}</span>
-                    <div class="material-controls">
-                        <button data-action="decrement" ${quantity === 0 ? 'disabled' : ''}>−</button>
-                        <button data-action="increment">+</button>
                     </div>
                 </div>
             `;
         });
 
-        html += '</div></div>';
+        html += '</div>';
         container.innerHTML = html;
 
         // Add event listeners for increment/decrement
-        container.querySelectorAll('.material-item').forEach(item => {
-            const materialId = item.dataset.materialId;
-            const incrementBtn = item.querySelector('[data-action="increment"]');
-            const decrementBtn = item.querySelector('[data-action="decrement"]');
-            const quantitySpan = item.querySelector('.material-quantity');
+        container.querySelectorAll('.material-card').forEach(card => {
+            const materialId = card.dataset.materialId;
+            const incrementBtn = card.querySelector('[data-action="increment"]');
+            const decrementBtn = card.querySelector('[data-action="decrement"]');
+            const quantityBadge = card.querySelector('.material-quantity-badge');
 
             incrementBtn.addEventListener('click', () => {
                 Hunters.incrementChestMaterial(hunterId, materialId, 1);
-                const newQty = parseInt(quantitySpan.textContent) + 1;
-                quantitySpan.textContent = newQty;
+                const newQty = parseInt(quantityBadge.textContent) + 1;
+                quantityBadge.textContent = newQty;
                 decrementBtn.disabled = false;
+                card.classList.remove('empty');
             });
 
             decrementBtn.addEventListener('click', () => {
                 Hunters.decrementChestMaterial(hunterId, materialId, 1);
-                const newQty = Math.max(0, parseInt(quantitySpan.textContent) - 1);
-                quantitySpan.textContent = newQty;
-                if (newQty === 0) decrementBtn.disabled = true;
+                const newQty = Math.max(0, parseInt(quantityBadge.textContent) - 1);
+                quantityBadge.textContent = newQty;
+                if (newQty === 0) {
+                    decrementBtn.disabled = true;
+                    card.classList.add('empty');
+                }
             });
         });
     },
@@ -962,6 +1139,22 @@ const Components = {
                 } else {
                     Helpers.showToast(result.message, 'error');
                 }
+            });
+        });
+
+        // Add accordion toggle listeners
+        container.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const accordionId = header.dataset.accordion;
+                const content = container.querySelector(`[data-accordion-content="${accordionId}"]`);
+                const icon = header.querySelector('.accordion-icon');
+
+                // Toggle active state
+                header.classList.toggle('active');
+                content.classList.toggle('open');
+
+                // Update icon
+                icon.textContent = header.classList.contains('active') ? '▼' : '▶';
             });
         });
     },

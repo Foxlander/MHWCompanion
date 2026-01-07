@@ -24,7 +24,7 @@ const defaultComponentsData = [
       name: 'Great Jagras',
       icon: 'GreatJagras.png',
       parts: [
-        { name: 'Great Jagras Claw', quantity: 0, icon: 'GreatJagrasClaw.png' },
+        { name: 'Great Jagras Claw', quantity: 0, icon: 'GreatJagrasClaw.webp' },
         { name: 'Great Jagras Hide', quantity: 0, icon: 'GreatJagrasHide.png' },
         { name: 'Great Jagras Mane', quantity: 0, icon: 'GreatJagrasMane.png' },
         { name: 'Great Jagras Scale', quantity: 0, icon: 'GreatJagrasScale.png' },

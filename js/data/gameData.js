@@ -5,303 +5,83 @@
  */
 
 const GameData = {
-    // Example weapons
+    // Real MHW weapons from equipementsData.js
     weapons: [
-        {
-            id: 'weapon-iron-sword',
-            name: 'Épée de fer',
-            type: 'Grande Épée',
-            attack: 15,
-            affinity: 0,
-            element: null,
-            skills: [],
-            recipe: [
-                { materialId: 'mat-ore-iron', quantity: 5 },
-                { materialId: 'mat-bone', quantity: 3 }
-            ]
-        },
-        {
-            id: 'weapon-bone-blade',
-            name: 'Lame d\'os',
-            type: 'Grande Épée',
-            attack: 12,
-            affinity: 10,
-            element: null,
-            skills: [],
-            recipe: [
-                { materialId: 'mat-bone', quantity: 8 },
-                { materialId: 'mat-claw', quantity: 2 }
-            ]
-        },
-        {
-            id: 'weapon-fire-sword',
-            name: 'Épée de feu',
-            type: 'Grande Épée',
-            attack: 14,
-            affinity: 0,
-            element: { type: 'fire', value: 20 },
-            skills: [],
-            recipe: [
-                { materialId: 'mat-ore-iron', quantity: 4 },
-                { materialId: 'mat-scale', quantity: 5 },
-                { materialId: 'mat-plate', quantity: 1 }
-            ]
-        },
-        {
-            id: 'weapon-iron-bow',
-            name: 'Arc de fer',
-            type: 'Arc',
-            attack: 10,
-            affinity: 0,
-            element: null,
-            skills: [],
-            recipe: [
-                { materialId: 'mat-ore-iron', quantity: 3 },
-                { materialId: 'mat-bone', quantity: 2 }
-            ]
-        },
-        {
-            id: 'weapon-hunter-bow',
-            name: 'Arc de chasseur',
-            type: 'Arc',
-            attack: 12,
-            affinity: 5,
-            element: null,
-            skills: [],
-            recipe: [
-                { materialId: 'mat-bone', quantity: 5 },
-                { materialId: 'mat-scale', quantity: 3 },
-                { materialId: 'mat-claw', quantity: 2 }
-            ]
-        }
+        { id: 'weapon-greatsword-buster-sword', name: 'Buster Sword', type: 'Grande Épée', damage: { d1: 7, d2: 4, d3: 1, d4: 0 }, affinity: 0, element: null, skills: [], recipe: [ { materialId: 'mat-bone-medium', quantity: 1 } ] },
+        { id: 'weapon-greatsword-buster-blade', name: 'Buster Blade', type: 'Grande Épée', damage: { d1: 7, d2: 4, d3: 1, d4: 0 }, affinity: 0, element: null, skills: [], recipe: [ { materialId: 'mat-dragonite-ore', quantity: 1 }, { materialId: 'mat-machalite-ore', quantity: 1 }, { materialId: 'mat-bone-medium', quantity: 1 } ] },
+        { id: 'weapon-greatsword-chrome-razor', name: 'Chrome Razor', type: 'Grande Épée', damage: { d1: 7, d2: 4, d3: 1, d4: 0 }, affinity: 0, element: null, skills: [], recipe: [ { materialId: 'mat-fucium-ore', quantity: 2 }, { materialId: 'mat-carbalite-ore', quantity: 2 }, { materialId: 'mat-dragonite-ore', quantity: 3 }, { materialId: 'mat-dragonvein-crystal', quantity: 2 } ] },
+        { id: 'weapon-greatsword-bone-blade', name: 'Bone Blade', type: 'Grande Épée', damage: { d1: 7, d2: 4, d3: 1, d4: 0 }, affinity: 0, element: null, skills: [], recipe: [ { materialId: 'mat-bone-small', quantity: 1 } ] },
+        { id: 'weapon-greatsword-bone-slasher', name: 'Bone Slasher', type: 'Grande Épée', damage: { d1: 7, d2: 4, d3: 1, d4: 0 }, affinity: 0, element: null, skills: [], recipe: [ { materialId: 'mat-bone-small', quantity: 1 }, { materialId: 'mat-bone-small', quantity: 1 }, { materialId: 'mat-boulder-bone', quantity: 1 } ] },
+        { id: 'weapon-greatsword-giant-jawblade', name: 'Giant Jawblade', type: 'Grande Épée', damage: { d1: 7, d2: 4, d3: 1, d4: 0 }, affinity: 0, element: null, skills: [], recipe: [ { materialId: 'mat-hardbone', quantity: 2 }, { materialId: 'mat-keenbone', quantity: 2 }, { materialId: 'mat-quality-bone', quantity: 3 } ] },
+        { id: 'weapon-greatsword-jagras-blade', name: 'Jagras Blade', type: 'Grande Épée', damage: { d1: 7, d2: 4, d3: 1, d4: 0 }, affinity: 0, element: null, skills: [], recipe: [ { materialId: 'mat-jagras-claw', quantity: 2 }, { materialId: 'mat-jagras-hide', quantity: 1 }, { materialId: 'mat-jagras-scale', quantity: 2 } ] },
+        { id: 'weapon-greatsword-jagras-hacker', name: 'Jagras Hacker', type: 'Grande Épée', damage: { d1: 7, d2: 4, d3: 1, d4: 0 }, affinity: 0, element: null, skills: [], recipe: [ { materialId: 'mat-jagras-scale', quantity: 2 }, { materialId: 'mat-jagras-claw', quantity: 2 }, { materialId: 'mat-jagras-mane', quantity: 2 } ] },
+        { id: 'weapon-greatsword-carapace-buster', name: 'Carapace Buster', type: 'Grande Épée', damage: { d1: 7, d2: 4, d3: 1, d4: 0 }, affinity: 0, element: null, skills: [], recipe: [ { materialId: 'mat-barroth-claw', quantity: 1 }, { materialId: 'mat-barroth-shell', quantity: 3 }, { materialId: 'mat-barroth-ridge', quantity: 3 } ] },
+        { id: 'weapon-greatsword-barroth-shredder', name: 'Barroth Shredder', type: 'Grande Épée', damage: { d1: 7, d2: 4, d3: 1, d4: 0 }, affinity: 0, element: null, skills: [], recipe: [ { materialId: 'mat-barroth-claw', quantity: 2 }, { materialId: 'mat-barroth-carapace', quantity: 3 }, { materialId: 'mat-barroth-ridge', quantity: 3 } ] },
+        { id: 'weapon-greatsword-blooming-blade', name: 'Blooming Blade', type: 'Grande Épée', damage: { d1: 7, d2: 4, d3: 1, d4: 0 }, affinity: 0, element: null, skills: [], recipe: [ { materialId: 'mat-pukei-quill', quantity: 2 }, { materialId: 'mat-pukei-scale', quantity: 2 }, { materialId: 'mat-pukei-tail', quantity: 1 } ] },
+        { id: 'weapon-greatsword-datura-blaze', name: 'Datura Blaze', type: 'Grande Épée', damage: { d1: 7, d2: 4, d3: 1, d4: 0 }, affinity: 0, element: null, skills: [], recipe: [ { materialId: 'mat-pukei-scale', quantity: 2 }, { materialId: 'mat-pukei-wing', quantity: 2 }, { materialId: 'mat-quality-bone', quantity: 3 } ] },
+        { id: 'weapon-greatsword-flame-blade', name: 'Flame Blade', type: 'Grande Épée', damage: { d1: 7, d2: 4, d3: 1, d4: 0 }, affinity: 0, element: null, skills: [], recipe: [ { materialId: 'mat-rathalos-scale', quantity: 3 }, { materialId: 'mat-rathalos-webbing', quantity: 2 }, { materialId: 'mat-rathalos-marrow', quantity: 2 } ] },
+        { id: 'weapon-greatsword-red-wing', name: 'Red Wing', type: 'Grande Épée', damage: { d1: 7, d2: 4, d3: 1, d4: 0 }, affinity: 0, element: null, skills: [], recipe: [ { materialId: 'mat-rathalos-scale', quantity: 2 }, { materialId: 'mat-rathalos-carapace', quantity: 1 }, { materialId: 'mat-rathalos-marrow', quantity: 1 } ] },
+        { id: 'weapon-greatsword-icesteel-edge', name: 'Icesteel Edge', type: 'Grande Épée', damage: { d1: 7, d2: 4, d3: 1, d4: 0 }, affinity: 0, element: null, skills: [], recipe: [ { materialId: 'mat-daora-claw', quantity: 1 }, { materialId: 'mat-daora-webbing', quantity: 2 }, { materialId: 'mat-nergigante-carapace', quantity: 3 } ] },
+        { id: 'weapon-greatsword-daora-s-decimator', name: 'Daora\'s Decimator', type: 'Grande Épée', damage: { d1: 7, d2: 4, d3: 1, d4: 0 }, affinity: 0, element: null, skills: [], recipe: [ { materialId: 'mat-daora-horn', quantity: 4 }, { materialId: 'mat-daora-claw', quantity: 3 }, { materialId: 'mat-daora-gem', quantity: 1 } ] },
+        { id: 'weapon-greatsword-nergal-judicator', name: 'Nergal Judicator', type: 'Grande Épée', damage: { d1: 7, d2: 4, d3: 1, d4: 0 }, affinity: 0, element: null, skills: [], recipe: [ { materialId: 'mat-nergigante-talon', quantity: 1 }, { materialId: 'mat-nergigante-regrowth', quantity: 1 }, { materialId: 'mat-nergigante-tail', quantity: 1 } ] },
+        { id: 'weapon-greatsword-purgation-s-atrocity', name: 'Purgation\'s Atrocity', type: 'Grande Épée', damage: { d1: 7, d2: 4, d3: 1, d4: 0 }, affinity: 0, element: null, skills: [], recipe: [ { materialId: 'mat-nergigante-horn', quantity: 4 }, { materialId: 'mat-nergigante-talon', quantity: 3 }, { materialId: 'mat-nergigante-gem', quantity: 2 } ] },
+        { id: 'weapon-hammer-iron-hammer', name: 'Iron Hammer', type: 'Marteau', damage: { d1: 7, d2: 4, d3: 1, d4: 0 }, affinity: 0, element: null, skills: [], recipe: [ { materialId: 'mat-carbalite-ore', quantity: 3 } ] },
+        { id: 'weapon-hammer-iron-demon', name: 'Iron Demon', type: 'Marteau', damage: { d1: 7, d2: 4, d3: 1, d4: 0 }, affinity: 0, element: null, skills: [], recipe: [ { materialId: 'mat-dragonite-ore', quantity: 2 }, { materialId: 'mat-machalite-ore', quantity: 5 }, { materialId: 'mat-bone-medium', quantity: 2 } ] },
+        { id: 'weapon-hammer-iron-arch-demon', name: 'Iron Arch Demon', type: 'Marteau', damage: { d1: 7, d2: 4, d3: 1, d4: 0 }, affinity: 0, element: null, skills: [], recipe: [ { materialId: 'mat-fucium-ore', quantity: 8 }, { materialId: 'mat-dragonite-ore', quantity: 5 }, { materialId: 'mat-carbalite-ore', quantity: 10 }, { materialId: 'mat-dragonvein-crystal', quantity: 3 } ] },
+        { id: 'weapon-hammer-bone-bludgeon', name: 'Bone Bludgeon', type: 'Marteau', damage: { d1: 7, d2: 4, d3: 1, d4: 0 }, affinity: 0, element: null, skills: [], recipe: [ { materialId: 'mat-bone-small', quantity: 1 } ] },
+        { id: 'weapon-hammer-fossil-bludgeon', name: 'Fossil Bludgeon', type: 'Marteau', damage: { d1: 7, d2: 4, d3: 1, d4: 0 }, affinity: 0, element: null, skills: [], recipe: [ { materialId: 'mat-bone-large', quantity: 1 }, { materialId: 'mat-bone-medium', quantity: 5 }, { materialId: 'mat-boulder-bone', quantity: 2 } ] },
+        { id: 'weapon-hammer-grand-rock', name: 'Grand Rock', type: 'Marteau', damage: { d1: 7, d2: 4, d3: 1, d4: 0 }, affinity: 0, element: null, skills: [], recipe: [ { materialId: 'mat-hardbone', quantity: 4 }, { materialId: 'mat-keenbone', quantity: 6 }, { materialId: 'mat-quality-bone', quantity: 10 } ] },
+        { id: 'weapon-hammer-carapace-sledge', name: 'Carapace Sledge', type: 'Marteau', damage: { d1: 7, d2: 4, d3: 1, d4: 0 }, affinity: 0, element: null, skills: [], recipe: [ { materialId: 'mat-barroth-claw', quantity: 1 }, { materialId: 'mat-barroth-shell', quantity: 2 }, { materialId: 'mat-barroth-ridge', quantity: 2 } ] },
+        { id: 'weapon-hammer-barroth-breaker', name: 'Barroth Breaker', type: 'Marteau', damage: { d1: 7, d2: 4, d3: 1, d4: 0 }, affinity: 0, element: null, skills: [], recipe: [ { materialId: 'mat-barroth-claw', quantity: 2 }, { materialId: 'mat-barroth-carapace', quantity: 3 }, { materialId: 'mat-barroth-ridge', quantity: 2 } ] },
+        { id: 'weapon-hammer-kulu-beak', name: 'Kulu Beak', type: 'Marteau', damage: { d1: 7, d2: 4, d3: 1, d4: 0 }, affinity: 0, element: null, skills: [], recipe: [ { materialId: 'mat-kulu-beak', quantity: 1 }, { materialId: 'mat-kulu-hide', quantity: 2 }, { materialId: 'mat-kulu-scale', quantity: 4 } ] },
+        { id: 'weapon-hammer-crushing-beak', name: 'Crushing Beak', type: 'Marteau', damage: { d1: 7, d2: 4, d3: 1, d4: 0 }, affinity: 0, element: null, skills: [], recipe: [ { materialId: 'mat-kulu-beak', quantity: 2 }, { materialId: 'mat-kulu-hide', quantity: 3 }, { materialId: 'mat-kulu-plume', quantity: 3 }, { materialId: 'mat-boulder-bone', quantity: 4 } ] },
+        { id: 'weapon-hammer-blooming-hammer', name: 'Blooming Hammer', type: 'Marteau', damage: { d1: 7, d2: 4, d3: 1, d4: 0 }, affinity: 0, element: null, skills: [], recipe: [ { materialId: 'mat-pukei-quill', quantity: 2 }, { materialId: 'mat-pukei-scale', quantity: 3 } ] },
+        { id: 'weapon-hammer-buon-fiore', name: 'Buon Fiore', type: 'Marteau', damage: { d1: 7, d2: 4, d3: 1, d4: 0 }, affinity: 0, element: null, skills: [], recipe: [ { materialId: 'mat-pukei-scale', quantity: 3 }, { materialId: 'mat-pukei-wing', quantity: 2 }, { materialId: 'mat-quality-bone', quantity: 3 } ] },
+        { id: 'weapon-hammer-blazing-hammer', name: 'Blazing Hammer', type: 'Marteau', damage: { d1: 7, d2: 4, d3: 1, d4: 0 }, affinity: 0, element: null, skills: [], recipe: [ { materialId: 'mat-anjanath-fang', quantity: 2 }, { materialId: 'mat-anjanath-scale', quantity: 3 } ] },
+        { id: 'weapon-hammer-anja-striker', name: 'Anja Striker', type: 'Marteau', damage: { d1: 7, d2: 4, d3: 1, d4: 0 }, affinity: 0, element: null, skills: [], recipe: [ { materialId: 'mat-anjanath-fang', quantity: 4 }, { materialId: 'mat-anjanath-scale', quantity: 3 }, { materialId: 'mat-anjanath-pelt', quantity: 1 } ] },
+        { id: 'weapon-hammer-diablos-sledge', name: 'Diablos Sledge', type: 'Marteau', damage: { d1: 7, d2: 4, d3: 1, d4: 0 }, affinity: 0, element: null, skills: [], recipe: [ { materialId: 'mat-diablos-fang', quantity: 2 }, { materialId: 'mat-diablos-shell', quantity: 4 }, { materialId: 'mat-bone-medium', quantity: 3 } ] },
+        { id: 'weapon-hammer-diabos-shatterer', name: 'Diabos Shatterer', type: 'Marteau', damage: { d1: 7, d2: 4, d3: 1, d4: 0 }, affinity: 0, element: null, skills: [], recipe: [ { materialId: 'mat-diablos-carapace', quantity: 6 }, { materialId: 'mat-diablos-ridge', quantity: 5 } ] },
+        { id: 'weapon-hammer-icesteel-hammer', name: 'Icesteel Hammer', type: 'Marteau', damage: { d1: 7, d2: 4, d3: 1, d4: 0 }, affinity: 0, element: null, skills: [], recipe: [ { materialId: 'mat-daora-claw', quantity: 3 }, { materialId: 'mat-daora-webbing', quantity: 2 }, { materialId: 'mat-nergigante-carapace', quantity: 3 }, { materialId: 'mat-daora-tail', quantity: 2 } ] },
+        { id: 'weapon-hammer-daora-s-colossus', name: 'Daora\'s Colossus', type: 'Marteau', damage: { d1: 7, d2: 4, d3: 1, d4: 0 }, affinity: 0, element: null, skills: [], recipe: [ { materialId: 'mat-daora-horn', quantity: 4 }, { materialId: 'mat-daora-claw', quantity: 3 }, { materialId: 'mat-daora-gem', quantity: 1 } ] },
+        { id: 'weapon-hammer-nergal-crusher', name: 'Nergal Crusher', type: 'Marteau', damage: { d1: 7, d2: 4, d3: 1, d4: 0 }, affinity: 0, element: null, skills: [], recipe: [ { materialId: 'mat-nergigante-talon', quantity: 1 }, { materialId: 'mat-nergigante-regrowth', quantity: 1 }, { materialId: 'mat-nergigante-tail', quantity: 2 }, { materialId: 'mat-nergigante-carapace', quantity: 2 } ] },
+        { id: 'weapon-hammer-obliteration-s-footfall', name: 'Obliteration\'s Footfall', type: 'Marteau', damage: { d1: 7, d2: 4, d3: 1, d4: 0 }, affinity: 0, element: null, skills: [], recipe: [ { materialId: 'mat-nergigante-horn', quantity: 4 }, { materialId: 'mat-nergigante-talon', quantity: 3 }, { materialId: 'mat-nergigante-gem', quantity: 2 } ] }
     ],
 
-    // Example armor pieces
+    // Real MHW armor from equipementsData.js
     armor: [
-        // Head armor
-        {
-            id: 'armor-leather-helm',
-            name: 'Casque de cuir',
-            slot: 'head',
-            defense: 5,
-            skills: [
-                { id: 'skill-attack', name: 'Attaque', level: 1, maxLevel: 7 }
-            ],
-            recipe: [
-                { materialId: 'mat-bone', quantity: 2 },
-                { materialId: 'mat-herb', quantity: 3 }
-            ]
-        },
-        {
-            id: 'armor-bone-helm',
-            name: 'Casque d\'os',
-            slot: 'head',
-            defense: 7,
-            skills: [
-                { id: 'skill-defense', name: 'Défense', level: 1, maxLevel: 7 }
-            ],
-            recipe: [
-                { materialId: 'mat-bone', quantity: 4 },
-                { materialId: 'mat-carapace', quantity: 1 }
-            ]
-        },
-        // Chest armor
-        {
-            id: 'armor-leather-mail',
-            name: 'Armure de cuir',
-            slot: 'chest',
-            defense: 10,
-            health: 10,
-            skills: [
-                { id: 'skill-health', name: 'Santé', level: 1, maxLevel: 3 }
-            ],
-            recipe: [
-                { materialId: 'mat-bone', quantity: 3 },
-                { materialId: 'mat-scale', quantity: 2 }
-            ]
-        },
-        {
-            id: 'armor-bone-mail',
-            name: 'Armure d\'os',
-            slot: 'chest',
-            defense: 12,
-            skills: [
-                { id: 'skill-defense', name: 'Défense', level: 2, maxLevel: 7 }
-            ],
-            recipe: [
-                { materialId: 'mat-bone', quantity: 6 },
-                { materialId: 'mat-carapace', quantity: 2 },
-                { materialId: 'mat-scale', quantity: 3 }
-            ]
-        },
-        // Arms armor
-        {
-            id: 'armor-leather-vambraces',
-            name: 'Brassards de cuir',
-            slot: 'arms',
-            defense: 5,
-            skills: [
-                { id: 'skill-attack', name: 'Attaque', level: 1, maxLevel: 7 }
-            ],
-            recipe: [
-                { materialId: 'mat-bone', quantity: 2 },
-                { materialId: 'mat-claw', quantity: 1 }
-            ]
-        },
-        {
-            id: 'armor-bone-vambraces',
-            name: 'Brassards d\'os',
-            slot: 'arms',
-            defense: 6,
-            skills: [
-                { id: 'skill-sharpness', name: 'Affûtage', level: 1, maxLevel: 5 }
-            ],
-            recipe: [
-                { materialId: 'mat-bone', quantity: 3 },
-                { materialId: 'mat-claw', quantity: 2 },
-                { materialId: 'mat-scale', quantity: 1 }
-            ]
-        },
-        // Waist armor
-        {
-            id: 'armor-leather-belt',
-            name: 'Ceinture de cuir',
-            slot: 'waist',
-            defense: 4,
-            skills: [
-                { id: 'skill-stamina', name: 'Endurance', level: 1, maxLevel: 3 }
-            ],
-            recipe: [
-                { materialId: 'mat-bone', quantity: 2 }
-            ]
-        },
-        {
-            id: 'armor-bone-belt',
-            name: 'Ceinture d\'os',
-            slot: 'waist',
-            defense: 5,
-            stamina: 10,
-            skills: [
-                { id: 'skill-stamina', name: 'Endurance', level: 2, maxLevel: 3 }
-            ],
-            recipe: [
-                { materialId: 'mat-bone', quantity: 4 },
-                { materialId: 'mat-scale', quantity: 2 }
-            ]
-        },
-        // Legs armor
-        {
-            id: 'armor-leather-greaves',
-            name: 'Jambières de cuir',
-            slot: 'legs',
-            defense: 6,
-            skills: [
-                { id: 'skill-evade', name: 'Esquive', level: 1, maxLevel: 5 }
-            ],
-            recipe: [
-                { materialId: 'mat-bone', quantity: 3 },
-                { materialId: 'mat-herb', quantity: 2 }
-            ]
-        },
-        {
-            id: 'armor-bone-greaves',
-            name: 'Jambières d\'os',
-            slot: 'legs',
-            defense: 7,
-            skills: [
-                { id: 'skill-defense', name: 'Défense', level: 1, maxLevel: 7 }
-            ],
-            recipe: [
-                { materialId: 'mat-bone', quantity: 5 },
-                { materialId: 'mat-carapace', quantity: 1 },
-                { materialId: 'mat-scale', quantity: 2 }
-            ]
-        }
-    ],
-
-    // Example charms
-    charms: [
-        {
-            id: 'charm-attack',
-            name: 'Charme d\'attaque',
-            skills: [
-                { id: 'skill-attack', name: 'Attaque', level: 2, maxLevel: 7 }
-            ]
-        },
-        {
-            id: 'charm-defense',
-            name: 'Charme de défense',
-            skills: [
-                { id: 'skill-defense', name: 'Défense', level: 2, maxLevel: 7 }
-            ]
-        },
-        {
-            id: 'charm-health',
-            name: 'Charme de santé',
-            skills: [
-                { id: 'skill-health', name: 'Santé', level: 2, maxLevel: 3 }
-            ]
-        }
-    ],
-
-    // Example consumable items
-    items: [
-        {
-            id: 'item-potion',
-            name: 'Potion',
-            category: 'consumable',
-            description: 'Restaure une petite quantité de PV',
-            effect: { type: 'heal', value: 50 }
-        },
-        {
-            id: 'item-mega-potion',
-            name: 'Méga potion',
-            category: 'consumable',
-            description: 'Restaure une grande quantité de PV',
-            effect: { type: 'heal', value: 100 }
-        },
-        {
-            id: 'item-ration',
-            name: 'Ration',
-            category: 'consumable',
-            description: 'Restaure l\'endurance',
-            effect: { type: 'stamina', value: 50 }
-        },
-        {
-            id: 'item-demondrug',
-            name: 'Drogue démoniaque',
-            category: 'consumable',
-            description: 'Augmente l\'attaque temporairement',
-            effect: { type: 'buff', stat: 'attack', value: 5, duration: 180 }
-        },
-        {
-            id: 'item-armorskin',
-            name: 'Peau blindée',
-            category: 'consumable',
-            description: 'Augmente la défense temporairement',
-            effect: { type: 'buff', stat: 'defense', value: 10, duration: 180 }
-        },
-        {
-            id: 'item-whetstone',
-            name: 'Pierre à aiguiser',
-            category: 'tool',
-            description: 'Affûte l\'arme',
-            effect: { type: 'sharpen' }
-        },
-        {
-            id: 'item-trap',
-            name: 'Piège à choc',
-            category: 'tool',
-            description: 'Piège électrique pour immobiliser',
-            effect: { type: 'trap', duration: 10 }
-        },
-        {
-            id: 'item-bomb',
-            name: 'Bombe tonneau',
-            category: 'tool',
-            description: 'Inflige des dégâts explosifs',
-            effect: { type: 'damage', value: 150 }
-        }
+        {"id":"armor-leather-headgear","name":"Leather Headgear","slot":"head","defense":0,"recipe":[]},
+        {"id":"armor-leather-mail","name":"Leather Mail","slot":"chest","defense":5,"recipe":[{"materialId":"mat-carbalite-ore","quantity":1}],"elementalDefense":{"element":"fire","value":10},"skills":[{"id":"skill-flame-boost","name":"flame boost","level":1,"maxLevel":3,"description":""}]},
+        {"id":"armor-leather-trousers","name":"Leather Trousers","slot":"legs","defense":5,"recipe":[{"materialId":"mat-carbalite-ore","quantity":1}],"elementalDefense":{"element":"fire","value":10},"skills":[{"id":"skill-flame-boost","name":"flame boost","level":1,"maxLevel":3,"description":""}]},
+        {"id":"armor-chainmail-headgear","name":"Chainmail Headgear","slot":"head","defense":0,"recipe":[]},
+        {"id":"armor-chainmail-vest","name":"Chainmail Vest","slot":"chest","defense":5,"recipe":[],"elementalDefense":{"element":"fire","value":10},"skills":[{"id":"skill-flame-boost","name":"flame boost","level":1,"maxLevel":3,"description":""}]},
+        {"id":"armor-chainmail-trousers","name":"Chainmail Trousers","slot":"chest","defense":5,"recipe":[],"elementalDefense":{"element":"fire","value":10},"skills":[{"id":"skill-flame-boost","name":"flame boost","level":1,"maxLevel":3,"description":""}]},
+        {"id":"armor-alloy-helm","name":"Alloy Helm","slot":"head","defense":1,"recipe":[{"materialId":"mat-machalite-ore","quantity":2},{"materialId":"mat-carbalite-ore","quantity":1},{"materialId":"mat-dragonite-ore","quantity":1}]},
+        {"id":"armor-alloy-mail","name":"Alloy Mail","slot":"chest","defense":1,"recipe":[{"materialId":"mat-machalite-ore","quantity":1},{"materialId":"mat-carbalite-ore","quantity":2},{"materialId":"mat-dragonite-ore","quantity":1}]},
+        {"id":"armor-alloy-greaves","name":"Alloy Greaves","slot":"legs","defense":0,"recipe":[{"materialId":"mat-machalite-ore","quantity":1},{"materialId":"mat-carbalite-ore","quantity":2},{"materialId":"mat-dragonite-ore","quantity":1}],"skills":[{"id":"skill-poison-resistance","name":"Poison Resistance","level":1,"maxLevel":3,"description":"You are immune to the poison status."}]},
+        {"id":"armor-bone-helm","name":"Bone Helm","slot":"head","defense":1,"recipe":[{"materialId":"mat-bone-small","quantity":2},{"materialId":"mat-ancient-bone","quantity":2}]},
+        {"id":"armor-bone-mail","name":"Bone Mail","slot":"chest","defense":0,"recipe":[{"materialId":"mat-bone-small","quantity":1},{"materialId":"mat-ancient-bone","quantity":1}],"skills":[{"id":"skill-slugger","name":"Slugger","level":1,"maxLevel":3,"description":"Once per quest, apply +1 stun token."}]},
+        {"id":"armor-bone-greaves","name":"Bone Greaves","slot":"legs","defense":1,"recipe":[{"materialId":"mat-bone-small","quantity":1},{"materialId":"mat-ancient-bone","quantity":1}]},
+        {"id":"armor-jagras-helm","name":"Jagras Helm","slot":"head","defense":1,"recipe":[{"materialId":"mat-jagras-hide","quantity":1},{"materialId":"mat-jagras-mane","quantity":1},{"materialId":"mat-jagras-claw","quantity":1},{"materialId":"mat-ancient-bone","quantity":1}],"elementalDefense":{"element":"water","value":1},"skills":[{"id":"skill-speed-eating","name":"Speed Eating","level":1,"maxLevel":3,"description":"Once per quest, you may use combat actions and preparation actions during the same turn."}]},
+        {"id":"armor-jagras-mail","name":"Jagras Mail","slot":"chest","defense":1,"recipe":[{"materialId":"mat-jagras-hide","quantity":1},{"materialId":"mat-jagras-claw","quantity":1},{"materialId":"mat-jagras-scale","quantity":1},{"materialId":"mat-bone-small","quantity":1}],"elementalDefense":{"element":"water","value":1},"skills":[{"id":"skill-palico-rally","name":"Palico Rally","level":1,"maxLevel":3,"description":"You may use your Palico ability twice per quest."}]},
+        {"id":"armor-jagras-greaves","name":"Jagras Greaves","slot":"legs","defense":1,"recipe":[{"materialId":"mat-jagras-scale","quantity":1},{"materialId":"mat-jagras-hide","quantity":1},{"materialId":"mat-jagras-mane","quantity":1}],"elementalDefense":{"element":"water","value":1}},
+        {"id":"armor-barroth-helm","name":"Barroth Helm","slot":"head","defense":1,"recipe":[{"materialId":"mat-barroth-ridge","quantity":1},{"materialId":"mat-barroth-claw","quantity":1}],"elementalDefense":{"element":"water","value":1},"skills":[{"id":"skill-guard","name":"Guard","level":1,"maxLevel":3,"description":"Gain +1 armor when playing attacks that grant armor"}]},
+        {"id":"armor-barroth-mail","name":"Barroth Mail","slot":"chest","defense":1,"recipe":[{"materialId":"mat-barroth-carapace","quantity":1},{"materialId":"mat-barroth-ridge","quantity":2},{"materialId":"mat-barroth-claw","quantity":1},{"materialId":"mat-quality-bone","quantity":2}],"elementalDefense":{"element":"water","value":1}},
+        {"id":"armor-barroth-greaves","name":"Barroth Greaves","slot":"legs","defense":1,"recipe":[{"materialId":"mat-barroth-ridge","quantity":1},{"materialId":"mat-barroth-carapace","quantity":2}],"elementalDefense":{"element":"water","value":1},"skills":[{"id":"skill-stun-resistance","name":"Stun Resistance","level":1,"maxLevel":3,"description":" You're immune to the stun status ailment."}]},
+        {"id":"armor-pukei-hood","name":"Pukei Hood","slot":"chest","defense":1,"recipe":[{"materialId":"mat-pukei-carapace","quantity":1},{"materialId":"mat-pukei-tail","quantity":1},{"materialId":"mat-pukei-wing","quantity":1}],"elementalDefense":{"element":"water","value":1},"skills":[{"id":"skill-sporepuff-expert","name":"Sporepuff Expert","level":1,"maxLevel":3,"description":"When you recover health from anything that isn't a potion, recover 1 additional health."}]},
+        {"id":"armor-pukei-mail","name":"Pukei Mail","slot":"chest","defense":1,"recipe":[{"materialId":"mat-pukei-scale","quantity":2},{"materialId":"mat-pukei-carapace","quantity":1},{"materialId":"mat-carbalite-ore","quantity":3}],"elementalDefense":{"element":"water","value":1},"skills":[{"id":"skill-poison-resistance","name":"Poison resistance","level":1,"maxLevel":3,"description":"You are immune to the poison status."}]},
+        {"id":"armor-pukei-greaves","name":"Pukei Greaves","slot":"legs","defense":1,"recipe":[{"materialId":"mat-pukei-carapace","quantity":2},{"materialId":"mat-pukei-sac","quantity":2},{"materialId":"mat-pukei-scale","quantity":1},{"materialId":"mat-keenbone","quantity":1}],"elementalDefense":{"element":"water","value":1},"skills":[{"id":"skill-botanist","name":"Botanist","level":1,"maxLevel":3,"description":"During the gathering phase, when the hunters gain a potion, they may all immediately recover to full health."}]},
+        {"id":"armor-jyura-helm","name":"Jyura Helm","slot":"head","defense":1,"recipe":[{"materialId":"mat-jyuratodus-scale","quantity":1},{"materialId":"mat-jyuratodus-carapace","quantity":1},{"materialId":"mat-jyuratodus-fin","quantity":1}],"elementalDefense":{"element":"water","value":1},"skills":[{"id":"skill-aquatic-expert","name":"Aquatic Expert","level":1,"maxLevel":3,"description":"Gain immunity to pond nodes."}]},
+        {"id":"armor-jyura-mail","name":"Jyura Mail","slot":"chest","defense":1,"recipe":[{"materialId":"mat-jyuratodus-scale","quantity":1},{"materialId":"mat-jyuratodus-fin","quantity":1},{"materialId":"mat-jyuratodus-fang","quantity":1}],"elementalDefense":{"element":"water","value":1},"skills":[{"id":"skill-water-attack","name":"Water Attack","level":1,"maxLevel":3,"description":"Draw +1 damage card on water attacks."}]},
+        {"id":"armor-jyura-greaves","name":"Jyura Greaves","slot":"legs","defense":1,"recipe":[{"materialId":"mat-jyuratodus-carapace","quantity":1},{"materialId":"mat-jyuratodus-fang","quantity":1},{"materialId":"mat-jyuratodus-fin","quantity":1}],"elementalDefense":{"element":"water","value":2}},
+        {"id":"armor-kadachi-helm","name":"Kadachi Helm","slot":"head","defense":0,"recipe":[{"materialId":"mat-tobi-pelt","quantity":1},{"materialId":"mat-tobi-claw","quantity":1}],"elementalDefense":{"element":"thunder","value":2},"skills":[{"id":"skill-constitution","name":"Constitution","level":1,"maxLevel":3,"description":"Once per quest, discard attack cards when dodging."}]},
+        {"id":"armor-kadachi-mail","name":"Kadachi Mail","slot":"chest","defense":1,"recipe":[{"materialId":"mat-tobi-pelt","quantity":1},{"materialId":"mat-tobi-electrode","quantity":1},{"materialId":"mat-tobi-membrane","quantity":2},{"materialId":"mat-wingdrake-hide","quantity":1}],"elementalDefense":{"element":"thunder","value":1},"skills":[{"id":"skill-evade-extender","name":"Evade Extender","level":1,"maxLevel":3,"description":"Move +1 when dodging"}]},
+        {"id":"armor-kadachi-greaves","name":"Kadachi Greaves","slot":"legs","defense":1,"recipe":[{"materialId":"mat-tobi-scale","quantity":2},{"materialId":"mat-tobi-pelt","quantity":1}],"elementalDefense":{"element":"thunder","value":2},"skills":[{"id":"skill-thunder-attack","name":"Thunder Attack","level":1,"maxLevel":3,"description":"Draw +1 damage card on thunder attacks."}]},
+        {"id":"armor-anja-helm","name":"Anja Helm","slot":"head","defense":1,"recipe":[{"materialId":"mat-anjanath-pelt","quantity":1},{"materialId":"mat-anjanath-scale","quantity":1},{"materialId":"mat-anjanath-tail","quantity":1}],"elementalDefense":{"element":"fire","value":1},"skills":[{"id":"skill-fire-attack","name":"Fire Attack","level":1,"maxLevel":3,"description":"Draw +1 damage card on fire attacks."}]},
+        {"id":"armor-anja-mail","name":"Anja Mail","slot":"chest","defense":1,"recipe":[{"materialId":"mat-anjanath-pelt","quantity":1},{"materialId":"mat-anjanath-fang","quantity":1},{"materialId":"mat-anjanath-nosebone","quantity":1}],"elementalDefense":{"element":"fire","value":1},"skills":[{"id":"skill-marathon-runner","name":"Marathon Runner","level":1,"maxLevel":3,"description":"Move 2 instead of 1 when walking."}]},
+        {"id":"armor-anja-greaves","name":"Anja Greaves","slot":"legs","defense":1,"recipe":[{"materialId":"mat-anjanath-scale","quantity":1},{"materialId":"mat-anjanath-pelt","quantity":1},{"materialId":"mat-machalite-ore","quantity":2}],"elementalDefense":{"element":"fire","value":2}},
+        {"id":"armor-rathalos-helm","name":"Rathalos Helm","slot":"head","defense":2,"recipe":[{"materialId":"mat-rathalos-scale","quantity":1},{"materialId":"mat-rathalos-shell","quantity":1},{"materialId":"mat-rathalos-marrow","quantity":1}],"elementalDefense":{"element":"fire","value":1},"skills":[{"id":"skill-set-bonus-rathalos-mastery","name":"Set Bonus: Rathalos Mastery","level":1,"maxLevel":3,"description":"When applying fire, draw an elemental damage card instead of placing a fire token"}]},
+        {"id":"armor-rathalos-mail","name":"Rathalos Mail","slot":"chest","defense":1,"recipe":[{"materialId":"mat-rathalos-scale","quantity":1},{"materialId":"mat-rathalos-webbing","quantity":1},{"materialId":"mat-rathalos-plate","quantity":1}],"elementalDefense":{"element":"fire","value":1},"skills":[{"id":"skill-weakness-exploit","name":"Weakness Exploit","level":1,"maxLevel":3,"description":"Once per quest, you may swap your hunter token with another player, maintaining token facing."}]},
+        {"id":"armor-rathalos-greaves","name":"Rathalos Greaves","slot":"legs","defense":1,"recipe":[{"materialId":"mat-rathalos-shell","quantity":1},{"materialId":"mat-rathalos-wingtalon","quantity":1},{"materialId":"mat-rathalos-tail","quantity":1}],"elementalDefense":{"element":"fire","value":1},"skills":[{"id":"skill-sleep-resistance","name":"Sleep Resistance","level":1,"maxLevel":3,"description":"You're immune to the sleep status."}]}
     ],
 
     // Materials from MHW Board Game
@@ -439,8 +219,7 @@ const GameData = {
                 armor: this.armor,
                 charms: this.charms,
                 items: this.items,
-                materials: this.materials,
-                skills: this.skills
+                materials: this.materials
             });
 
             console.log('Game data initialized with example data');

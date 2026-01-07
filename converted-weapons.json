@@ -1,0 +1,1136 @@
+[
+    {
+        "id": "weapon-greatsword-buster-sword",
+        "name": "Buster Sword",
+        "type": "Grande Épée",
+        "attack": 12,
+        "damage": {
+            "d1": 7,
+            "d2": 4,
+            "d3": 1,
+            "d4": 0
+        },
+        "affinity": 0,
+        "element": null,
+        "skills": [],
+        "recipe": [
+            {
+                "materialId": "mat-bone-medium",
+                "quantity": 1
+            }
+        ]
+    },
+    {
+        "id": "weapon-greatsword-buster-blade",
+        "name": "Buster Blade",
+        "type": "Grande Épée",
+        "attack": 12,
+        "damage": {
+            "d1": 7,
+            "d2": 4,
+            "d3": 1,
+            "d4": 0
+        },
+        "affinity": 0,
+        "element": null,
+        "skills": [],
+        "recipe": [
+            {
+                "materialId": "mat-dragonite-ore",
+                "quantity": 1
+            },
+            {
+                "materialId": "mat-machalite-ore",
+                "quantity": 1
+            },
+            {
+                "materialId": "mat-bone-medium",
+                "quantity": 1
+            }
+        ]
+    },
+    {
+        "id": "weapon-greatsword-chrome-razor",
+        "name": "Chrome Razor",
+        "type": "Grande Épée",
+        "attack": 12,
+        "damage": {
+            "d1": 7,
+            "d2": 4,
+            "d3": 1,
+            "d4": 0
+        },
+        "affinity": 0,
+        "element": null,
+        "skills": [],
+        "recipe": [
+            {
+                "materialId": "mat-fucium-ore",
+                "quantity": 2
+            },
+            {
+                "materialId": "mat-carbalite-ore",
+                "quantity": 2
+            },
+            {
+                "materialId": "mat-dragonite-ore",
+                "quantity": 3
+            },
+            {
+                "materialId": "mat-dragonvein-crystal",
+                "quantity": 2
+            }
+        ]
+    },
+    {
+        "id": "weapon-greatsword-bone-blade",
+        "name": "Bone Blade",
+        "type": "Grande Épée",
+        "attack": 12,
+        "damage": {
+            "d1": 7,
+            "d2": 4,
+            "d3": 1,
+            "d4": 0
+        },
+        "affinity": 0,
+        "element": null,
+        "skills": [],
+        "recipe": [
+            {
+                "materialId": "mat-bone-small",
+                "quantity": 1
+            }
+        ]
+    },
+    {
+        "id": "weapon-greatsword-bone-slasher",
+        "name": "Bone Slasher",
+        "type": "Grande Épée",
+        "attack": 12,
+        "damage": {
+            "d1": 7,
+            "d2": 4,
+            "d3": 1,
+            "d4": 0
+        },
+        "affinity": 0,
+        "element": null,
+        "skills": [],
+        "recipe": [
+            {
+                "materialId": "mat-bone-small",
+                "quantity": 1
+            },
+            {
+                "materialId": "mat-bone-small",
+                "quantity": 1
+            },
+            {
+                "materialId": "mat-boulder-bone",
+                "quantity": 1
+            }
+        ]
+    },
+    {
+        "id": "weapon-greatsword-giant-jawblade",
+        "name": "Giant Jawblade",
+        "type": "Grande Épée",
+        "attack": 12,
+        "damage": {
+            "d1": 7,
+            "d2": 4,
+            "d3": 1,
+            "d4": 0
+        },
+        "affinity": 0,
+        "element": null,
+        "skills": [],
+        "recipe": [
+            {
+                "materialId": "mat-hardbone",
+                "quantity": 2
+            },
+            {
+                "materialId": "mat-keenbone",
+                "quantity": 2
+            },
+            {
+                "materialId": "mat-quality-bone",
+                "quantity": 3
+            }
+        ]
+    },
+    {
+        "id": "weapon-greatsword-jagras-blade",
+        "name": "Jagras Blade",
+        "type": "Grande Épée",
+        "attack": 12,
+        "damage": {
+            "d1": 7,
+            "d2": 4,
+            "d3": 1,
+            "d4": 0
+        },
+        "affinity": 0,
+        "element": null,
+        "skills": [],
+        "recipe": [
+            {
+                "materialId": "mat-jagras-claw",
+                "quantity": 2
+            },
+            {
+                "materialId": "mat-jagras-hide",
+                "quantity": 1
+            },
+            {
+                "materialId": "mat-jagras-scale",
+                "quantity": 2
+            },
+            {
+                "materialId": "mat-unknown-sharp-claw",
+                "quantity": 1
+            }
+        ]
+    },
+    {
+        "id": "weapon-greatsword-jagras-hacker",
+        "name": "Jagras Hacker",
+        "type": "Grande Épée",
+        "attack": 12,
+        "damage": {
+            "d1": 7,
+            "d2": 4,
+            "d3": 1,
+            "d4": 0
+        },
+        "affinity": 0,
+        "element": null,
+        "skills": [],
+        "recipe": [
+            {
+                "materialId": "mat-jagras-scale",
+                "quantity": 2
+            },
+            {
+                "materialId": "mat-jagras-claw",
+                "quantity": 2
+            },
+            {
+                "materialId": "mat-jagras-mane",
+                "quantity": 2
+            },
+            {
+                "materialId": "mat-unknown-piercing-claw",
+                "quantity": 1
+            }
+        ]
+    },
+    {
+        "id": "weapon-greatsword-carapace-buster",
+        "name": "Carapace Buster",
+        "type": "Grande Épée",
+        "attack": 12,
+        "damage": {
+            "d1": 7,
+            "d2": 4,
+            "d3": 1,
+            "d4": 0
+        },
+        "affinity": 0,
+        "element": null,
+        "skills": [],
+        "recipe": [
+            {
+                "materialId": "mat-barroth-claw",
+                "quantity": 1
+            },
+            {
+                "materialId": "mat-barroth-shell",
+                "quantity": 3
+            },
+            {
+                "materialId": "mat-barroth-ridge",
+                "quantity": 3
+            }
+        ]
+    },
+    {
+        "id": "weapon-greatsword-barroth-shredder",
+        "name": "Barroth Shredder",
+        "type": "Grande Épée",
+        "attack": 12,
+        "damage": {
+            "d1": 7,
+            "d2": 4,
+            "d3": 1,
+            "d4": 0
+        },
+        "affinity": 0,
+        "element": null,
+        "skills": [],
+        "recipe": [
+            {
+                "materialId": "mat-barroth-claw",
+                "quantity": 2
+            },
+            {
+                "materialId": "mat-barroth-carapace",
+                "quantity": 3
+            },
+            {
+                "materialId": "mat-barroth-ridge",
+                "quantity": 3
+            }
+        ]
+    },
+    {
+        "id": "weapon-greatsword-blooming-blade",
+        "name": "Blooming Blade",
+        "type": "Grande Épée",
+        "attack": 12,
+        "damage": {
+            "d1": 7,
+            "d2": 4,
+            "d3": 1,
+            "d4": 0
+        },
+        "affinity": 0,
+        "element": null,
+        "skills": [],
+        "recipe": [
+            {
+                "materialId": "mat-pukei-quill",
+                "quantity": 2
+            },
+            {
+                "materialId": "mat-pukei-scale",
+                "quantity": 2
+            },
+            {
+                "materialId": "mat-unknown-poison-sac",
+                "quantity": 1
+            },
+            {
+                "materialId": "mat-pukei-tail",
+                "quantity": 1
+            }
+        ]
+    },
+    {
+        "id": "weapon-greatsword-datura-blaze",
+        "name": "Datura Blaze",
+        "type": "Grande Épée",
+        "attack": 12,
+        "damage": {
+            "d1": 7,
+            "d2": 4,
+            "d3": 1,
+            "d4": 0
+        },
+        "affinity": 0,
+        "element": null,
+        "skills": [],
+        "recipe": [
+            {
+                "materialId": "mat-pukei-scale",
+                "quantity": 2
+            },
+            {
+                "materialId": "mat-pukei-wing",
+                "quantity": 2
+            },
+            {
+                "materialId": "mat-unknown-toxin-sac",
+                "quantity": 2
+            },
+            {
+                "materialId": "mat-quality-bone",
+                "quantity": 3
+            }
+        ]
+    },
+    {
+        "id": "weapon-greatsword-flame-blade",
+        "name": "Flame Blade",
+        "type": "Grande Épée",
+        "attack": 12,
+        "damage": {
+            "d1": 7,
+            "d2": 4,
+            "d3": 1,
+            "d4": 0
+        },
+        "affinity": 0,
+        "element": null,
+        "skills": [],
+        "recipe": [
+            {
+                "materialId": "mat-rathalos-scale",
+                "quantity": 3
+            },
+            {
+                "materialId": "mat-rathalos-webbing",
+                "quantity": 2
+            },
+            {
+                "materialId": "mat-unknown-inferno-sac",
+                "quantity": 3
+            },
+            {
+                "materialId": "mat-rathalos-marrow",
+                "quantity": 2
+            }
+        ]
+    },
+    {
+        "id": "weapon-greatsword-red-wing",
+        "name": "Red Wing",
+        "type": "Grande Épée",
+        "attack": 12,
+        "damage": {
+            "d1": 7,
+            "d2": 4,
+            "d3": 1,
+            "d4": 0
+        },
+        "affinity": 0,
+        "element": null,
+        "skills": [],
+        "recipe": [
+            {
+                "materialId": "mat-rathalos-scale",
+                "quantity": 2
+            },
+            {
+                "materialId": "mat-rathalos-carapace",
+                "quantity": 1
+            },
+            {
+                "materialId": "mat-unknown-inferno-wing",
+                "quantity": 1
+            },
+            {
+                "materialId": "mat-rathalos-marrow",
+                "quantity": 1
+            }
+        ]
+    },
+    {
+        "id": "weapon-greatsword-icesteel-edge",
+        "name": "Icesteel Edge",
+        "type": "Grande Épée",
+        "attack": 12,
+        "damage": {
+            "d1": 7,
+            "d2": 4,
+            "d3": 1,
+            "d4": 0
+        },
+        "affinity": 0,
+        "element": null,
+        "skills": [],
+        "recipe": [
+            {
+                "materialId": "mat-daora-claw",
+                "quantity": 1
+            },
+            {
+                "materialId": "mat-daora-webbing",
+                "quantity": 2
+            },
+            {
+                "materialId": "mat-nergigante-carapace",
+                "quantity": 3
+            }
+        ]
+    },
+    {
+        "id": "weapon-greatsword-daora-s-decimator",
+        "name": "Daora's Decimator",
+        "type": "Grande Épée",
+        "attack": 12,
+        "damage": {
+            "d1": 7,
+            "d2": 4,
+            "d3": 1,
+            "d4": 0
+        },
+        "affinity": 0,
+        "element": null,
+        "skills": [],
+        "recipe": [
+            {
+                "materialId": "mat-daora-horn",
+                "quantity": 4
+            },
+            {
+                "materialId": "mat-daora-claw",
+                "quantity": 3
+            },
+            {
+                "materialId": "mat-daora-gem",
+                "quantity": 1
+            }
+        ]
+    },
+    {
+        "id": "weapon-greatsword-nergal-judicator",
+        "name": "Nergal Judicator",
+        "type": "Grande Épée",
+        "attack": 12,
+        "damage": {
+            "d1": 7,
+            "d2": 4,
+            "d3": 1,
+            "d4": 0
+        },
+        "affinity": 0,
+        "element": null,
+        "skills": [],
+        "recipe": [
+            {
+                "materialId": "mat-nergigante-talon",
+                "quantity": 1
+            },
+            {
+                "materialId": "mat-nergigante-regrowth",
+                "quantity": 1
+            },
+            {
+                "materialId": "mat-nergigante-tail",
+                "quantity": 1
+            }
+        ]
+    },
+    {
+        "id": "weapon-greatsword-purgation-s-atrocity",
+        "name": "Purgation's Atrocity",
+        "type": "Grande Épée",
+        "attack": 12,
+        "damage": {
+            "d1": 7,
+            "d2": 4,
+            "d3": 1,
+            "d4": 0
+        },
+        "affinity": 0,
+        "element": null,
+        "skills": [],
+        "recipe": [
+            {
+                "materialId": "mat-nergigante-horn",
+                "quantity": 4
+            },
+            {
+                "materialId": "mat-nergigante-talon",
+                "quantity": 3
+            },
+            {
+                "materialId": "mat-nergigante-gem",
+                "quantity": 2
+            }
+        ]
+    },
+    {
+        "id": "weapon-hammer-iron-hammer",
+        "name": "Iron Hammer",
+        "type": "Marteau",
+        "attack": 12,
+        "damage": {
+            "d1": 7,
+            "d2": 4,
+            "d3": 1,
+            "d4": 0
+        },
+        "affinity": 0,
+        "element": null,
+        "skills": [],
+        "recipe": [
+            {
+                "materialId": "mat-carbalite-ore",
+                "quantity": 3
+            }
+        ]
+    },
+    {
+        "id": "weapon-hammer-iron-demon",
+        "name": "Iron Demon",
+        "type": "Marteau",
+        "attack": 12,
+        "damage": {
+            "d1": 7,
+            "d2": 4,
+            "d3": 1,
+            "d4": 0
+        },
+        "affinity": 0,
+        "element": null,
+        "skills": [],
+        "recipe": [
+            {
+                "materialId": "mat-dragonite-ore",
+                "quantity": 2
+            },
+            {
+                "materialId": "mat-machalite-ore",
+                "quantity": 5
+            },
+            {
+                "materialId": "mat-bone-medium",
+                "quantity": 2
+            }
+        ]
+    },
+    {
+        "id": "weapon-hammer-iron-arch-demon",
+        "name": "Iron Arch Demon",
+        "type": "Marteau",
+        "attack": 12,
+        "damage": {
+            "d1": 7,
+            "d2": 4,
+            "d3": 1,
+            "d4": 0
+        },
+        "affinity": 0,
+        "element": null,
+        "skills": [],
+        "recipe": [
+            {
+                "materialId": "mat-fucium-ore",
+                "quantity": 8
+            },
+            {
+                "materialId": "mat-dragonite-ore",
+                "quantity": 5
+            },
+            {
+                "materialId": "mat-carbalite-ore",
+                "quantity": 10
+            },
+            {
+                "materialId": "mat-dragonvein-crystal",
+                "quantity": 3
+            }
+        ]
+    },
+    {
+        "id": "weapon-hammer-bone-bludgeon",
+        "name": "Bone Bludgeon",
+        "type": "Marteau",
+        "attack": 12,
+        "damage": {
+            "d1": 7,
+            "d2": 4,
+            "d3": 1,
+            "d4": 0
+        },
+        "affinity": 0,
+        "element": null,
+        "skills": [],
+        "recipe": [
+            {
+                "materialId": "mat-bone-small",
+                "quantity": 1
+            }
+        ]
+    },
+    {
+        "id": "weapon-hammer-fossil-bludgeon",
+        "name": "Fossil Bludgeon",
+        "type": "Marteau",
+        "attack": 12,
+        "damage": {
+            "d1": 7,
+            "d2": 4,
+            "d3": 1,
+            "d4": 0
+        },
+        "affinity": 0,
+        "element": null,
+        "skills": [],
+        "recipe": [
+            {
+                "materialId": "mat-bone-large",
+                "quantity": 1
+            },
+            {
+                "materialId": "mat-bone-medium",
+                "quantity": 5
+            },
+            {
+                "materialId": "mat-boulder-bone",
+                "quantity": 2
+            }
+        ]
+    },
+    {
+        "id": "weapon-hammer-grand-rock",
+        "name": "Grand Rock",
+        "type": "Marteau",
+        "attack": 12,
+        "damage": {
+            "d1": 7,
+            "d2": 4,
+            "d3": 1,
+            "d4": 0
+        },
+        "affinity": 0,
+        "element": null,
+        "skills": [],
+        "recipe": [
+            {
+                "materialId": "mat-hardbone",
+                "quantity": 4
+            },
+            {
+                "materialId": "mat-keenbone",
+                "quantity": 6
+            },
+            {
+                "materialId": "mat-quality-bone",
+                "quantity": 10
+            }
+        ]
+    },
+    {
+        "id": "weapon-hammer-carapace-sledge",
+        "name": "Carapace Sledge",
+        "type": "Marteau",
+        "attack": 12,
+        "damage": {
+            "d1": 7,
+            "d2": 4,
+            "d3": 1,
+            "d4": 0
+        },
+        "affinity": 0,
+        "element": null,
+        "skills": [],
+        "recipe": [
+            {
+                "materialId": "mat-barroth-claw",
+                "quantity": 1
+            },
+            {
+                "materialId": "mat-barroth-shell",
+                "quantity": 2
+            },
+            {
+                "materialId": "mat-barroth-ridge",
+                "quantity": 2
+            }
+        ]
+    },
+    {
+        "id": "weapon-hammer-barroth-breaker",
+        "name": "Barroth Breaker",
+        "type": "Marteau",
+        "attack": 12,
+        "damage": {
+            "d1": 7,
+            "d2": 4,
+            "d3": 1,
+            "d4": 0
+        },
+        "affinity": 0,
+        "element": null,
+        "skills": [],
+        "recipe": [
+            {
+                "materialId": "mat-barroth-claw",
+                "quantity": 2
+            },
+            {
+                "materialId": "mat-barroth-carapace",
+                "quantity": 3
+            },
+            {
+                "materialId": "mat-barroth-ridge",
+                "quantity": 2
+            }
+        ]
+    },
+    {
+        "id": "weapon-hammer-kulu-beak",
+        "name": "Kulu Beak",
+        "type": "Marteau",
+        "attack": 12,
+        "damage": {
+            "d1": 7,
+            "d2": 4,
+            "d3": 1,
+            "d4": 0
+        },
+        "affinity": 0,
+        "element": null,
+        "skills": [],
+        "recipe": [
+            {
+                "materialId": "mat-kulu-beak",
+                "quantity": 1
+            },
+            {
+                "materialId": "mat-kulu-hide",
+                "quantity": 2
+            },
+            {
+                "materialId": "mat-kulu-scale",
+                "quantity": 4
+            },
+            {
+                "materialId": "mat-unknown-earth-crystal",
+                "quantity": 3
+            }
+        ]
+    },
+    {
+        "id": "weapon-hammer-crushing-beak",
+        "name": "Crushing Beak",
+        "type": "Marteau",
+        "attack": 12,
+        "damage": {
+            "d1": 7,
+            "d2": 4,
+            "d3": 1,
+            "d4": 0
+        },
+        "affinity": 0,
+        "element": null,
+        "skills": [],
+        "recipe": [
+            {
+                "materialId": "mat-kulu-beak",
+                "quantity": 2
+            },
+            {
+                "materialId": "mat-kulu-hide",
+                "quantity": 3
+            },
+            {
+                "materialId": "mat-kulu-plume",
+                "quantity": 3
+            },
+            {
+                "materialId": "mat-boulder-bone",
+                "quantity": 4
+            }
+        ]
+    },
+    {
+        "id": "weapon-hammer-blooming-hammer",
+        "name": "Blooming Hammer",
+        "type": "Marteau",
+        "attack": 12,
+        "damage": {
+            "d1": 7,
+            "d2": 4,
+            "d3": 1,
+            "d4": 0
+        },
+        "affinity": 0,
+        "element": null,
+        "skills": [],
+        "recipe": [
+            {
+                "materialId": "mat-pukei-quill",
+                "quantity": 2
+            },
+            {
+                "materialId": "mat-pukei-scale",
+                "quantity": 3
+            },
+            {
+                "materialId": "mat-unknown-poison-sac",
+                "quantity": 1
+            }
+        ]
+    },
+    {
+        "id": "weapon-hammer-buon-fiore",
+        "name": "Buon Fiore",
+        "type": "Marteau",
+        "attack": 12,
+        "damage": {
+            "d1": 7,
+            "d2": 4,
+            "d3": 1,
+            "d4": 0
+        },
+        "affinity": 0,
+        "element": null,
+        "skills": [],
+        "recipe": [
+            {
+                "materialId": "mat-pukei-scale",
+                "quantity": 3
+            },
+            {
+                "materialId": "mat-pukei-wing",
+                "quantity": 2
+            },
+            {
+                "materialId": "mat-unknown-toxin-sac",
+                "quantity": 2
+            },
+            {
+                "materialId": "mat-quality-bone",
+                "quantity": 3
+            }
+        ]
+    },
+    {
+        "id": "weapon-hammer-blazing-hammer",
+        "name": "Blazing Hammer",
+        "type": "Marteau",
+        "attack": 12,
+        "damage": {
+            "d1": 7,
+            "d2": 4,
+            "d3": 1,
+            "d4": 0
+        },
+        "affinity": 0,
+        "element": null,
+        "skills": [],
+        "recipe": [
+            {
+                "materialId": "mat-anjanath-fang",
+                "quantity": 2
+            },
+            {
+                "materialId": "mat-anjanath-scale",
+                "quantity": 3
+            },
+            {
+                "materialId": "mat-unknown-flame-sac",
+                "quantity": 1
+            }
+        ]
+    },
+    {
+        "id": "weapon-hammer-anja-striker",
+        "name": "Anja Striker",
+        "type": "Marteau",
+        "attack": 12,
+        "damage": {
+            "d1": 7,
+            "d2": 4,
+            "d3": 1,
+            "d4": 0
+        },
+        "affinity": 0,
+        "element": null,
+        "skills": [],
+        "recipe": [
+            {
+                "materialId": "mat-anjanath-fang",
+                "quantity": 4
+            },
+            {
+                "materialId": "mat-anjanath-scale",
+                "quantity": 3
+            },
+            {
+                "materialId": "mat-unknown-inferno-sac",
+                "quantity": 3
+            },
+            {
+                "materialId": "mat-anjanath-pelt",
+                "quantity": 1
+            }
+        ]
+    },
+    {
+        "id": "weapon-hammer-diablos-sledge",
+        "name": "Diablos Sledge",
+        "type": "Marteau",
+        "attack": 12,
+        "damage": {
+            "d1": 7,
+            "d2": 4,
+            "d3": 1,
+            "d4": 0
+        },
+        "affinity": 0,
+        "element": null,
+        "skills": [],
+        "recipe": [
+            {
+                "materialId": "mat-unknown-twisted-horn",
+                "quantity": 1
+            },
+            {
+                "materialId": "mat-diablos-fang",
+                "quantity": 2
+            },
+            {
+                "materialId": "mat-diablos-shell",
+                "quantity": 4
+            },
+            {
+                "materialId": "mat-bone-medium",
+                "quantity": 3
+            }
+        ]
+    },
+    {
+        "id": "weapon-hammer-diabos-shatterer",
+        "name": "Diabos Shatterer",
+        "type": "Marteau",
+        "attack": 12,
+        "damage": {
+            "d1": 7,
+            "d2": 4,
+            "d3": 1,
+            "d4": 0
+        },
+        "affinity": 0,
+        "element": null,
+        "skills": [],
+        "recipe": [
+            {
+                "materialId": "mat-unknown-majestic-horn",
+                "quantity": 3
+            },
+            {
+                "materialId": "mat-diablos-carapace",
+                "quantity": 6
+            },
+            {
+                "materialId": "mat-diablos-ridge",
+                "quantity": 5
+            },
+            {
+                "materialId": "mat-unknown-blos-medulla",
+                "quantity": 1
+            }
+        ]
+    },
+    {
+        "id": "weapon-hammer-icesteel-hammer",
+        "name": "Icesteel Hammer",
+        "type": "Marteau",
+        "attack": 12,
+        "damage": {
+            "d1": 7,
+            "d2": 4,
+            "d3": 1,
+            "d4": 0
+        },
+        "affinity": 0,
+        "element": null,
+        "skills": [],
+        "recipe": [
+            {
+                "materialId": "mat-daora-claw",
+                "quantity": 3
+            },
+            {
+                "materialId": "mat-daora-webbing",
+                "quantity": 2
+            },
+            {
+                "materialId": "mat-nergigante-carapace",
+                "quantity": 3
+            },
+            {
+                "materialId": "mat-daora-tail",
+                "quantity": 2
+            }
+        ]
+    },
+    {
+        "id": "weapon-hammer-daora-s-colossus",
+        "name": "Daora's Colossus",
+        "type": "Marteau",
+        "attack": 12,
+        "damage": {
+            "d1": 7,
+            "d2": 4,
+            "d3": 1,
+            "d4": 0
+        },
+        "affinity": 0,
+        "element": null,
+        "skills": [],
+        "recipe": [
+            {
+                "materialId": "mat-daora-horn",
+                "quantity": 4
+            },
+            {
+                "materialId": "mat-daora-claw",
+                "quantity": 3
+            },
+            {
+                "materialId": "mat-daora-gem",
+                "quantity": 1
+            }
+        ]
+    },
+    {
+        "id": "weapon-hammer-nergal-crusher",
+        "name": "Nergal Crusher",
+        "type": "Marteau",
+        "attack": 12,
+        "damage": {
+            "d1": 7,
+            "d2": 4,
+            "d3": 1,
+            "d4": 0
+        },
+        "affinity": 0,
+        "element": null,
+        "skills": [],
+        "recipe": [
+            {
+                "materialId": "mat-nergigante-talon",
+                "quantity": 1
+            },
+            {
+                "materialId": "mat-nergigante-regrowth",
+                "quantity": 1
+            },
+            {
+                "materialId": "mat-nergigante-tail",
+                "quantity": 2
+            },
+            {
+                "materialId": "mat-nergigante-carapace",
+                "quantity": 2
+            }
+        ]
+    },
+    {
+        "id": "weapon-hammer-obliteration-s-footfall",
+        "name": "Obliteration's Footfall",
+        "type": "Marteau",
+        "attack": 12,
+        "damage": {
+            "d1": 7,
+            "d2": 4,
+            "d3": 1,
+            "d4": 0
+        },
+        "affinity": 0,
+        "element": null,
+        "skills": [],
+        "recipe": [
+            {
+                "materialId": "mat-nergigante-horn",
+                "quantity": 4
+            },
+            {
+                "materialId": "mat-nergigante-talon",
+                "quantity": 3
+            },
+            {
+                "materialId": "mat-nergigante-gem",
+                "quantity": 2
+            }
+        ]
+    }
+]
