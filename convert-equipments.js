@@ -1,6 +1,13 @@
 /**
  * Script to convert equipementsData.js to gameData.js format
  * Run with: node convert-equipments.js
+ *
+ * USAGE:
+ * 1. Modify js/data/equipementsData.js to add your weapons/armor
+ * 2. Run: node convert-equipments.js
+ * 3. Copy the output from converted-weapons.json and converted-armor.json
+ * 4. Paste into js/data/gameData.js (replace the weapons and armor arrays)
+ * 5. Open the app and click "Réglages" > "Réinitialiser toutes les données"
  */
 
 const fs = require('fs');
@@ -140,13 +147,31 @@ const materialNameToId = {
     "Nergigante Talon": "mat-nergigante-talon"
 };
 
+// Weapon type name mapping (French names used in app)
+const weaponTypeMapping = {
+    "Great Sword": "Grande Épée",
+    "Hammer": "Marteau",
+    "Longsword": "Épée Longue",
+    "Sword and Shield": "Épée et Bouclier",
+    "Dual Blades": "Doubles Lames",
+    "Lance": "Lance",
+    "Gunlance": "Fusarbalète",
+    "Switch Axe": "Morpho-Hache",
+    "Charge Blade": "Volto-Hache",
+    "Insect Glaive": "Insectoglaive",
+    "Bow": "Arc",
+    "Light Bowgun": "Fusarbalète Légère",
+    "Heavy Bowgun": "Fusarbalète Lourde",
+    "Hunting Horn": "Cor de Chasse"
+};
+
 function convertMaterials(materials) {
     if (!materials || materials.length === 0) return [];
 
     return materials.map(mat => {
         const id = materialNameToId[mat.name];
         if (!id) {
-            console.warn(`Warning: Material "${mat.name}" not found in mapping`);
+            console.warn(`⚠️  Material "${mat.name}" not found in mapping`);
         }
         return {
             materialId: id || `mat-unknown-${mat.name.toLowerCase().replace(/\s+/g, '-')}`,
@@ -157,8 +182,23 @@ function convertMaterials(materials) {
 
 function slugify(text) {
     return text.toLowerCase()
-        .replace(/['\s]+/g, '-')
+        .replace(/[''\s]+/g, '-')
         .replace(/[^a-z0-9-]/g, '');
+}
+
+/**
+ * Extract rarity from icon filename
+ * @param {string} iconFilename - Icon filename (e.g., "HelmetRarity3.png", "GreatSwordRarity5.png")
+ * @returns {number} Rarity level (1-5)
+ */
+function extractRarity(iconFilename) {
+    if (!iconFilename) return 1;
+
+    const match = iconFilename.match(/Rarity(\d)/i);
+    if (match) {
+        return parseInt(match[1]);
+    }
+    return 1; // Default to rarity 1
 }
 
 // Convert armor
@@ -169,8 +209,10 @@ if (armorData) {
     const slotMap = {
         'helm': 'head',
         'headgear': 'head',
+        'hood': 'head',
         'mail': 'chest',
         'vest': 'chest',
+        'coil': 'waist',
         'greaves': 'legs',
         'trousers': 'legs'
     };
@@ -192,6 +234,7 @@ if (armorData) {
                 name: variant.name,
                 slot: slot,
                 defense: variant.physicalDefense || variant.defense || 0,
+                rarity: extractRarity(variant.icon),
                 recipe: convertMaterials(variant.materials)
             };
 
@@ -219,91 +262,73 @@ if (armorData) {
     });
 }
 
-// Convert weapons
+// Convert weapons - AUTOMATIC FOR ALL WEAPON TYPES
 const weapons = [];
+const weaponStats = {}; // Track stats per weapon type
 
-// Process Great Sword
-const greatSwordData = defaultEquipementsData.find(item => item.name === 'Great Sword');
-if (greatSwordData) {
-    greatSwordData.types.forEach(type => {
-        type.variants.forEach(variant => {
-            const weapon = {
-                id: `weapon-greatsword-${slugify(variant.name)}`,
-                name: variant.name,
-                type: 'Grande Épée',
-                attack: (variant.damage1 || 0) + (variant.damage2 || 0) + (variant.damage3 || 0) + (variant.damage4 || 0),
-                damage: {
-                    d1: variant.damage1 || 0,
-                    d2: variant.damage2 || 0,
-                    d3: variant.damage3 || 0,
-                    d4: variant.damage4 || 0
-                },
-                affinity: 0,
-                element: null,
-                skills: [],
-                recipe: convertMaterials(variant.materials)
-            };
+defaultEquipementsData.forEach(equipmentCategory => {
+    // Skip armor
+    if (equipmentCategory.name === 'Armor') return;
 
-            // Add affix/skill if present
-            if (variant.affix && variant.affix !== 'none') {
-                weapon.skills.push({
-                    id: `skill-${slugify(variant.affix)}`,
-                    name: variant.affix,
-                    description: variant.affixText || ''
-                });
-            }
+    // Check if this is a weapon type
+    const weaponType = weaponTypeMapping[equipmentCategory.name];
 
-            weapons.push(weapon);
+    if (weaponType) {
+        console.log(`\n📋 Processing weapon type: ${equipmentCategory.name} (${weaponType})`);
+
+        let weaponCount = 0;
+        equipmentCategory.types.forEach(type => {
+            type.variants.forEach(variant => {
+                const weapon = {
+                    id: `weapon-${slugify(weaponType)}-${slugify(variant.name)}`,
+                    name: variant.name,
+                    type: weaponType,
+                    attack: (variant.damage1 || 0) + (variant.damage2 || 0) + (variant.damage3 || 0) + (variant.damage4 || 0),
+                    damage: {
+                        d1: variant.damage1 || 0,
+                        d2: variant.damage2 || 0,
+                        d3: variant.damage3 || 0,
+                        d4: variant.damage4 || 0
+                    },
+                    rarity: extractRarity(variant.icon),
+                    affinity: variant.affinity || 0,
+                    element: variant.element || null,
+                    skills: [],
+                    recipe: convertMaterials(variant.materials)
+                };
+
+                // Add affix/skill if present
+                if (variant.affix && variant.affix !== 'none') {
+                    weapon.skills.push({
+                        id: `skill-${slugify(variant.affix)}`,
+                        name: variant.affix,
+                        description: variant.affixText || ''
+                    });
+                }
+
+                weapons.push(weapon);
+                weaponCount++;
+            });
         });
-    });
-}
 
-// Process Hammer
-const hammerData = defaultEquipementsData.find(item => item.name === 'Hammer');
-if (hammerData) {
-    hammerData.types.forEach(type => {
-        type.variants.forEach(variant => {
-            const weapon = {
-                id: `weapon-hammer-${slugify(variant.name)}`,
-                name: variant.name,
-                type: 'Marteau',
-                attack: (variant.damage1 || 0) + (variant.damage2 || 0) + (variant.damage3 || 0) + (variant.damage4 || 0),
-                damage: {
-                    d1: variant.damage1 || 0,
-                    d2: variant.damage2 || 0,
-                    d3: variant.damage3 || 0,
-                    d4: variant.damage4 || 0
-                },
-                affinity: 0,
-                element: null,
-                skills: [],
-                recipe: convertMaterials(variant.materials)
-            };
-
-            // Add affix/skill if present
-            if (variant.affix && variant.affix !== 'none') {
-                weapon.skills.push({
-                    id: `skill-${slugify(variant.affix)}`,
-                    name: variant.affix,
-                    description: variant.affixText || ''
-                });
-            }
-
-            weapons.push(weapon);
-        });
-    });
-}
+        weaponStats[weaponType] = weaponCount;
+        console.log(`   ✓ Converted ${weaponCount} ${weaponType} weapons`);
+    }
+});
 
 // Output results
-console.log('=== ARMOR ===');
-console.log(`Converted ${armor.length} armor pieces`);
-console.log('');
+console.log('\n' + '='.repeat(50));
+console.log('📦 CONVERSION COMPLETE');
+console.log('='.repeat(50));
 
-console.log('=== WEAPONS ===');
-console.log(`Converted ${weapons.length} weapons`);
-console.log('  - Great Swords:', weapons.filter(w => w.type === 'Grande Épée').length);
-console.log('  - Hammers:', weapons.filter(w => w.type === 'Marteau').length);
-console.log('');
+console.log('\n🛡️  ARMOR');
+console.log(`   Total: ${armor.length} armor pieces`);
+
+console.log('\n⚔️  WEAPONS');
+console.log(`   Total: ${weapons.length} weapons`);
+Object.entries(weaponStats).forEach(([type, count]) => {
+    console.log(`   - ${type}: ${count}`);
+});
 
 // Write to files
 const armorOutput = JSON.stringify(armor, null, 4);
@@ -312,8 +337,33 @@ const weaponsOutput = JSON.stringify(weapons, null, 4);
 fs.writeFileSync(path.join(__dirname, 'converted-armor.json'), armorOutput);
 fs.writeFileSync(path.join(__dirname, 'converted-weapons.json'), weaponsOutput);
 
-console.log('Files written:');
-console.log('  - converted-armor.json');
-console.log('  - converted-weapons.json');
+console.log('\n📁 FILES WRITTEN:');
+console.log('   ✓ converted-armor.json');
+console.log('   ✓ converted-weapons.json');
+
+console.log('\n📋 NEXT STEPS:');
+console.log('   1. Copy data from converted-weapons.json');
+console.log('   2. Replace the weapons array in js/data/gameData.js');
+console.log('   3. Copy data from converted-armor.json');
+console.log('   4. Replace the armor array in js/data/gameData.js');
+console.log('   5. Open app → Réglages → Réinitialiser toutes les données');
 console.log('');
-console.log('You can now copy these arrays into gameData.js');
+
+// Check for unmapped materials
+const unmappedMaterials = new Set();
+[...armor, ...weapons].forEach(item => {
+    item.recipe.forEach(mat => {
+        if (mat.materialId.startsWith('mat-unknown-')) {
+            unmappedMaterials.add(mat.materialId.replace('mat-unknown-', ''));
+        }
+    });
+});
+
+if (unmappedMaterials.size > 0) {
+    console.log('⚠️  WARNING: Unmapped materials found:');
+    unmappedMaterials.forEach(mat => {
+        console.log(`   - ${mat}`);
+    });
+    console.log('   Add these to materialNameToId mapping in convert-equipments.js');
+    console.log('');
+}

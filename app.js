@@ -39,6 +39,9 @@ const App = {
             // Initialize views
             HunterView.init();
 
+            // Create default hunters if none exist
+            this.initializeDefaultHunters();
+
             // Set up event listeners
             this.setupEventListeners();
 
@@ -51,6 +54,46 @@ const App = {
         } catch (error) {
             console.error('Error initializing application:', error);
             Helpers.showToast('Erreur lors de l\'initialisation', 'error');
+        }
+    },
+
+    /**
+     * Initialize default hunters if none exist
+     */
+    initializeDefaultHunters() {
+        const hunters = Hunters.getAll();
+
+        // Only create default hunters if there are none
+        if (hunters.length === 0) {
+            console.log('Creating default hunters...');
+
+            // Create Hunter 1
+            Hunters.create({
+                name: 'Chasseur 1',
+                hunterRank: 1,
+                stats: {
+                    health: 100,
+                    stamina: 100,
+                    attack: 10,
+                    defense: 10,
+                    affinity: 0
+                }
+            });
+
+            // Create Hunter 2
+            Hunters.create({
+                name: 'Chasseur 2',
+                hunterRank: 1,
+                stats: {
+                    health: 100,
+                    stamina: 100,
+                    attack: 10,
+                    defense: 10,
+                    affinity: 0
+                }
+            });
+
+            console.log('Default hunters created');
         }
     },
 
@@ -71,18 +114,8 @@ const App = {
         }
 
         // Footer actions
-        const btnNew = Helpers.getElement('btn-new');
         const btnExport = Helpers.getElement('btn-export');
         const btnSettings = Helpers.getElement('btn-settings');
-
-        if (btnNew) {
-            btnNew.addEventListener('click', () => this.handleNew());
-            // Set "New" button text
-            const textSpan = btnNew.querySelector('.btn-text');
-            if (textSpan) {
-                textSpan.textContent = 'Nouveau Chasseur';
-            }
-        }
 
         if (btnExport) {
             btnExport.addEventListener('click', () => this.handleExport());
@@ -146,14 +179,6 @@ const App = {
     },
 
     /**
-     * Handle new button click
-     */
-    handleNew() {
-        // Always create a new hunter
-        Components.showHunterForm();
-    },
-
-    /**
      * Handle menu button click
      */
     handleMenu() {
@@ -165,8 +190,87 @@ const App = {
      * Handle settings button click
      */
     handleSettings() {
-        console.log('Settings clicked (Phase 5)');
-        Helpers.showToast('Paramètres disponibles en Phase 5', 'info');
+        const html = `
+            <div class="settings-modal">
+                <h3>Paramètres</h3>
+
+                <div class="settings-section">
+                    <h4>Données</h4>
+                    <p class="settings-description">
+                        Réinitialiser complètement l'application et supprimer toutes les données sauvegardées.
+                    </p>
+                    <button class="btn btn-danger" id="btn-reset-all">
+                        Réinitialiser toutes les données
+                    </button>
+                </div>
+
+                <div class="settings-section">
+                    <h4>À propos</h4>
+                    <p class="settings-description">
+                        MHW Board Game Companion v1.0.0<br>
+                        Application de gestion pour Monster Hunter World Board Game
+                    </p>
+                </div>
+            </div>
+        `;
+
+        Modal.open({
+            title: 'Paramètres',
+            body: html,
+            actions: [
+                {
+                    label: 'Fermer',
+                    class: 'btn-secondary',
+                    onClick: () => Modal.close()
+                }
+            ]
+        });
+
+        // Add event listener for reset button after a short delay to ensure DOM is ready
+        setTimeout(() => {
+            const resetBtn = document.getElementById('btn-reset-all');
+            if (resetBtn) {
+                resetBtn.addEventListener('click', () => {
+                    Modal.close();
+                    this.handleResetAll();
+                });
+            }
+        }, 100);
+    },
+
+    /**
+     * Handle complete data reset
+     */
+    handleResetAll() {
+        const confirmed = confirm(
+            'ATTENTION : Cette action va supprimer TOUTES les données !\n\n' +
+            'Cela inclut :\n' +
+            '- Tous les chasseurs\n' +
+            '- Tous les équipements craftés\n' +
+            '- Tous les matériaux collectés\n' +
+            '- Toutes les quêtes\n\n' +
+            'Cette action est IRRÉVERSIBLE.\n\n' +
+            'Voulez-vous vraiment continuer ?'
+        );
+
+        if (confirmed) {
+            try {
+                // Clear all localStorage
+                localStorage.clear();
+
+                // Show success message
+                Helpers.showToast('Toutes les données ont été supprimées', 'success', 3000);
+
+                // Reload page to reinitialize
+                setTimeout(() => {
+                    location.reload();
+                }, 1500);
+
+            } catch (error) {
+                console.error('Error resetting data:', error);
+                Helpers.showToast('Erreur lors de la réinitialisation', 'error');
+            }
+        }
     },
 
     /**

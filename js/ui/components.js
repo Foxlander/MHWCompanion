@@ -692,7 +692,7 @@ const Components = {
                 const hunter = Hunters.getById(hunterId);
 
                 // Use IconMapping to get the correct weapon icon
-                const weaponImage = IconMapping.getWeaponIcon(weapon.type, weapon.attack);
+                const weaponImage = IconMapping.getWeaponIcon(weapon.type, weapon.rarity || 1);
 
                 html += `
                     <div class="forge-card ${isCrafted ? 'crafted' : ''} ${canCraft && !isCrafted ? 'craftable' : ''}">
@@ -787,7 +787,7 @@ const Components = {
                 const hunter = Hunters.getById(hunterId);
 
                 // Use IconMapping to get the correct armor icon
-                const armorImage = IconMapping.getArmorIcon(armor.slot, armor.defense);
+                const armorImage = IconMapping.getArmorIcon(armor.slot, armor.rarity || 1);
 
                 html += `
                     <div class="forge-card ${isCrafted ? 'crafted' : ''} ${canCraft && !isCrafted ? 'craftable' : ''}">

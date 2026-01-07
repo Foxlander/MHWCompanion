@@ -1,6 +1,6 @@
 [
     {
-        "id": "weapon-greatsword-buster-sword",
+        "id": "weapon-grande-pe-buster-sword",
         "name": "Buster Sword",
         "type": "Grande Épée",
         "attack": 12,
@@ -10,6 +10,7 @@
             "d3": 1,
             "d4": 0
         },
+        "rarity": 1,
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -21,7 +22,7 @@
         ]
     },
     {
-        "id": "weapon-greatsword-buster-blade",
+        "id": "weapon-grande-pe-buster-blade",
         "name": "Buster Blade",
         "type": "Grande Épée",
         "attack": 12,
@@ -31,6 +32,7 @@
             "d3": 1,
             "d4": 0
         },
+        "rarity": 2,
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -50,7 +52,7 @@
         ]
     },
     {
-        "id": "weapon-greatsword-chrome-razor",
+        "id": "weapon-grande-pe-chrome-razor",
         "name": "Chrome Razor",
         "type": "Grande Épée",
         "attack": 12,
@@ -60,6 +62,7 @@
             "d3": 1,
             "d4": 0
         },
+        "rarity": 3,
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -83,7 +86,7 @@
         ]
     },
     {
-        "id": "weapon-greatsword-bone-blade",
+        "id": "weapon-grande-pe-bone-blade",
         "name": "Bone Blade",
         "type": "Grande Épée",
         "attack": 12,
@@ -93,6 +96,7 @@
             "d3": 1,
             "d4": 0
         },
+        "rarity": 2,
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -104,7 +108,7 @@
         ]
     },
     {
-        "id": "weapon-greatsword-bone-slasher",
+        "id": "weapon-grande-pe-bone-slasher",
         "name": "Bone Slasher",
         "type": "Grande Épée",
         "attack": 12,
@@ -114,6 +118,7 @@
             "d3": 1,
             "d4": 0
         },
+        "rarity": 2,
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -133,7 +138,7 @@
         ]
     },
     {
-        "id": "weapon-greatsword-giant-jawblade",
+        "id": "weapon-grande-pe-giant-jawblade",
         "name": "Giant Jawblade",
         "type": "Grande Épée",
         "attack": 12,
@@ -143,6 +148,7 @@
             "d3": 1,
             "d4": 0
         },
+        "rarity": 3,
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -162,7 +168,7 @@
         ]
     },
     {
-        "id": "weapon-greatsword-jagras-blade",
+        "id": "weapon-grande-pe-jagras-blade",
         "name": "Jagras Blade",
         "type": "Grande Épée",
         "attack": 12,
@@ -172,6 +178,7 @@
             "d3": 1,
             "d4": 0
         },
+        "rarity": 3,
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -195,7 +202,7 @@
         ]
     },
     {
-        "id": "weapon-greatsword-jagras-hacker",
+        "id": "weapon-grande-pe-jagras-hacker",
         "name": "Jagras Hacker",
         "type": "Grande Épée",
         "attack": 12,
@@ -205,6 +212,7 @@
             "d3": 1,
             "d4": 0
         },
+        "rarity": 4,
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -228,7 +236,7 @@
         ]
     },
     {
-        "id": "weapon-greatsword-carapace-buster",
+        "id": "weapon-grande-pe-carapace-buster",
         "name": "Carapace Buster",
         "type": "Grande Épée",
         "attack": 12,
@@ -238,6 +246,7 @@
             "d3": 1,
             "d4": 0
         },
+        "rarity": 3,
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -257,7 +266,7 @@
         ]
     },
     {
-        "id": "weapon-greatsword-barroth-shredder",
+        "id": "weapon-grande-pe-barroth-shredder",
         "name": "Barroth Shredder",
         "type": "Grande Épée",
         "attack": 12,
@@ -267,6 +276,7 @@
             "d3": 1,
             "d4": 0
         },
+        "rarity": 4,
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -286,7 +296,7 @@
         ]
     },
     {
-        "id": "weapon-greatsword-blooming-blade",
+        "id": "weapon-grande-pe-blooming-blade",
         "name": "Blooming Blade",
         "type": "Grande Épée",
         "attack": 12,
@@ -296,6 +306,7 @@
             "d3": 1,
             "d4": 0
         },
+        "rarity": 3,
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -319,7 +330,7 @@
         ]
     },
     {
-        "id": "weapon-greatsword-datura-blaze",
+        "id": "weapon-grande-pe-datura-blaze",
         "name": "Datura Blaze",
         "type": "Grande Épée",
         "attack": 12,
@@ -329,6 +340,7 @@
             "d3": 1,
             "d4": 0
         },
+        "rarity": 4,
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -352,7 +364,7 @@
         ]
     },
     {
-        "id": "weapon-greatsword-flame-blade",
+        "id": "weapon-grande-pe-flame-blade",
         "name": "Flame Blade",
         "type": "Grande Épée",
         "attack": 12,
@@ -362,6 +374,7 @@
             "d3": 1,
             "d4": 0
         },
+        "rarity": 3,
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -385,7 +398,7 @@
         ]
     },
     {
-        "id": "weapon-greatsword-red-wing",
+        "id": "weapon-grande-pe-red-wing",
         "name": "Red Wing",
         "type": "Grande Épée",
         "attack": 12,
@@ -395,6 +408,7 @@
             "d3": 1,
             "d4": 0
         },
+        "rarity": 4,
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -418,7 +432,7 @@
         ]
     },
     {
-        "id": "weapon-greatsword-icesteel-edge",
+        "id": "weapon-grande-pe-icesteel-edge",
         "name": "Icesteel Edge",
         "type": "Grande Épée",
         "attack": 12,
@@ -428,6 +442,7 @@
             "d3": 1,
             "d4": 0
         },
+        "rarity": 4,
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -447,7 +462,7 @@
         ]
     },
     {
-        "id": "weapon-greatsword-daora-s-decimator",
+        "id": "weapon-grande-pe-daora-s-decimator",
         "name": "Daora's Decimator",
         "type": "Grande Épée",
         "attack": 12,
@@ -457,6 +472,7 @@
             "d3": 1,
             "d4": 0
         },
+        "rarity": 5,
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -476,7 +492,7 @@
         ]
     },
     {
-        "id": "weapon-greatsword-nergal-judicator",
+        "id": "weapon-grande-pe-nergal-judicator",
         "name": "Nergal Judicator",
         "type": "Grande Épée",
         "attack": 12,
@@ -486,6 +502,7 @@
             "d3": 1,
             "d4": 0
         },
+        "rarity": 4,
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -505,7 +522,7 @@
         ]
     },
     {
-        "id": "weapon-greatsword-purgation-s-atrocity",
+        "id": "weapon-grande-pe-purgation-s-atrocity",
         "name": "Purgation's Atrocity",
         "type": "Grande Épée",
         "attack": 12,
@@ -515,6 +532,7 @@
             "d3": 1,
             "d4": 0
         },
+        "rarity": 5,
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -534,7 +552,7 @@
         ]
     },
     {
-        "id": "weapon-hammer-iron-hammer",
+        "id": "weapon-marteau-iron-hammer",
         "name": "Iron Hammer",
         "type": "Marteau",
         "attack": 12,
@@ -544,6 +562,7 @@
             "d3": 1,
             "d4": 0
         },
+        "rarity": 1,
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -555,7 +574,7 @@
         ]
     },
     {
-        "id": "weapon-hammer-iron-demon",
+        "id": "weapon-marteau-iron-demon",
         "name": "Iron Demon",
         "type": "Marteau",
         "attack": 12,
@@ -565,6 +584,7 @@
             "d3": 1,
             "d4": 0
         },
+        "rarity": 2,
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -584,7 +604,7 @@
         ]
     },
     {
-        "id": "weapon-hammer-iron-arch-demon",
+        "id": "weapon-marteau-iron-arch-demon",
         "name": "Iron Arch Demon",
         "type": "Marteau",
         "attack": 12,
@@ -594,6 +614,7 @@
             "d3": 1,
             "d4": 0
         },
+        "rarity": 3,
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -617,7 +638,7 @@
         ]
     },
     {
-        "id": "weapon-hammer-bone-bludgeon",
+        "id": "weapon-marteau-bone-bludgeon",
         "name": "Bone Bludgeon",
         "type": "Marteau",
         "attack": 12,
@@ -627,6 +648,7 @@
             "d3": 1,
             "d4": 0
         },
+        "rarity": 2,
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -638,7 +660,7 @@
         ]
     },
     {
-        "id": "weapon-hammer-fossil-bludgeon",
+        "id": "weapon-marteau-fossil-bludgeon",
         "name": "Fossil Bludgeon",
         "type": "Marteau",
         "attack": 12,
@@ -648,6 +670,7 @@
             "d3": 1,
             "d4": 0
         },
+        "rarity": 2,
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -667,7 +690,7 @@
         ]
     },
     {
-        "id": "weapon-hammer-grand-rock",
+        "id": "weapon-marteau-grand-rock",
         "name": "Grand Rock",
         "type": "Marteau",
         "attack": 12,
@@ -677,6 +700,7 @@
             "d3": 1,
             "d4": 0
         },
+        "rarity": 3,
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -696,7 +720,7 @@
         ]
     },
     {
-        "id": "weapon-hammer-carapace-sledge",
+        "id": "weapon-marteau-carapace-sledge",
         "name": "Carapace Sledge",
         "type": "Marteau",
         "attack": 12,
@@ -706,6 +730,7 @@
             "d3": 1,
             "d4": 0
         },
+        "rarity": 3,
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -725,7 +750,7 @@
         ]
     },
     {
-        "id": "weapon-hammer-barroth-breaker",
+        "id": "weapon-marteau-barroth-breaker",
         "name": "Barroth Breaker",
         "type": "Marteau",
         "attack": 12,
@@ -735,6 +760,7 @@
             "d3": 1,
             "d4": 0
         },
+        "rarity": 4,
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -754,7 +780,7 @@
         ]
     },
     {
-        "id": "weapon-hammer-kulu-beak",
+        "id": "weapon-marteau-kulu-beak",
         "name": "Kulu Beak",
         "type": "Marteau",
         "attack": 12,
@@ -764,6 +790,7 @@
             "d3": 1,
             "d4": 0
         },
+        "rarity": 3,
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -787,7 +814,7 @@
         ]
     },
     {
-        "id": "weapon-hammer-crushing-beak",
+        "id": "weapon-marteau-crushing-beak",
         "name": "Crushing Beak",
         "type": "Marteau",
         "attack": 12,
@@ -797,6 +824,7 @@
             "d3": 1,
             "d4": 0
         },
+        "rarity": 4,
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -820,7 +848,7 @@
         ]
     },
     {
-        "id": "weapon-hammer-blooming-hammer",
+        "id": "weapon-marteau-blooming-hammer",
         "name": "Blooming Hammer",
         "type": "Marteau",
         "attack": 12,
@@ -830,6 +858,7 @@
             "d3": 1,
             "d4": 0
         },
+        "rarity": 3,
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -849,7 +878,7 @@
         ]
     },
     {
-        "id": "weapon-hammer-buon-fiore",
+        "id": "weapon-marteau-buon-fiore",
         "name": "Buon Fiore",
         "type": "Marteau",
         "attack": 12,
@@ -859,6 +888,7 @@
             "d3": 1,
             "d4": 0
         },
+        "rarity": 4,
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -882,7 +912,7 @@
         ]
     },
     {
-        "id": "weapon-hammer-blazing-hammer",
+        "id": "weapon-marteau-blazing-hammer",
         "name": "Blazing Hammer",
         "type": "Marteau",
         "attack": 12,
@@ -892,6 +922,7 @@
             "d3": 1,
             "d4": 0
         },
+        "rarity": 3,
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -911,7 +942,7 @@
         ]
     },
     {
-        "id": "weapon-hammer-anja-striker",
+        "id": "weapon-marteau-anja-striker",
         "name": "Anja Striker",
         "type": "Marteau",
         "attack": 12,
@@ -921,6 +952,7 @@
             "d3": 1,
             "d4": 0
         },
+        "rarity": 4,
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -944,7 +976,7 @@
         ]
     },
     {
-        "id": "weapon-hammer-diablos-sledge",
+        "id": "weapon-marteau-diablos-sledge",
         "name": "Diablos Sledge",
         "type": "Marteau",
         "attack": 12,
@@ -954,6 +986,7 @@
             "d3": 1,
             "d4": 0
         },
+        "rarity": 4,
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -977,7 +1010,7 @@
         ]
     },
     {
-        "id": "weapon-hammer-diabos-shatterer",
+        "id": "weapon-marteau-diabos-shatterer",
         "name": "Diabos Shatterer",
         "type": "Marteau",
         "attack": 12,
@@ -987,6 +1020,7 @@
             "d3": 1,
             "d4": 0
         },
+        "rarity": 5,
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -1010,7 +1044,7 @@
         ]
     },
     {
-        "id": "weapon-hammer-icesteel-hammer",
+        "id": "weapon-marteau-icesteel-hammer",
         "name": "Icesteel Hammer",
         "type": "Marteau",
         "attack": 12,
@@ -1020,6 +1054,7 @@
             "d3": 1,
             "d4": 0
         },
+        "rarity": 4,
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -1043,7 +1078,7 @@
         ]
     },
     {
-        "id": "weapon-hammer-daora-s-colossus",
+        "id": "weapon-marteau-daora-s-colossus",
         "name": "Daora's Colossus",
         "type": "Marteau",
         "attack": 12,
@@ -1053,6 +1088,7 @@
             "d3": 1,
             "d4": 0
         },
+        "rarity": 5,
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -1072,7 +1108,7 @@
         ]
     },
     {
-        "id": "weapon-hammer-nergal-crusher",
+        "id": "weapon-marteau-nergal-crusher",
         "name": "Nergal Crusher",
         "type": "Marteau",
         "attack": 12,
@@ -1082,6 +1118,7 @@
             "d3": 1,
             "d4": 0
         },
+        "rarity": 5,
         "affinity": 0,
         "element": null,
         "skills": [],
@@ -1105,7 +1142,7 @@
         ]
     },
     {
-        "id": "weapon-hammer-obliteration-s-footfall",
+        "id": "weapon-marteau-obliteration-s-footfall",
         "name": "Obliteration's Footfall",
         "type": "Marteau",
         "attack": 12,
@@ -1115,6 +1152,401 @@
             "d3": 1,
             "d4": 0
         },
+        "rarity": 5,
+        "affinity": 0,
+        "element": null,
+        "skills": [],
+        "recipe": [
+            {
+                "materialId": "mat-nergigante-horn",
+                "quantity": 4
+            },
+            {
+                "materialId": "mat-nergigante-talon",
+                "quantity": 3
+            },
+            {
+                "materialId": "mat-nergigante-gem",
+                "quantity": 2
+            }
+        ]
+    },
+    {
+        "id": "weapon-pe-longue-bone-shotel",
+        "name": "Bone Shotel",
+        "type": "Épée Longue",
+        "attack": 10,
+        "damage": {
+            "d1": 6,
+            "d2": 4,
+            "d3": 0,
+            "d4": 0
+        },
+        "rarity": 1,
+        "affinity": 0,
+        "element": null,
+        "skills": [],
+        "recipe": [
+            {
+                "materialId": "mat-bone-small",
+                "quantity": 1
+            }
+        ]
+    },
+    {
+        "id": "weapon-pe-longue-bone-shotel",
+        "name": "Bone Shotel",
+        "type": "Épée Longue",
+        "attack": 10,
+        "damage": {
+            "d1": 6,
+            "d2": 4,
+            "d3": 0,
+            "d4": 0
+        },
+        "rarity": 1,
+        "affinity": 0,
+        "element": null,
+        "skills": [],
+        "recipe": [
+            {
+                "materialId": "mat-bone-small",
+                "quantity": 1
+            }
+        ]
+    },
+    {
+        "id": "weapon-pe-longue-iron-katana",
+        "name": "Iron Katana",
+        "type": "Épée Longue",
+        "attack": 12,
+        "damage": {
+            "d1": 9,
+            "d2": 3,
+            "d3": 0,
+            "d4": 0
+        },
+        "rarity": 1,
+        "affinity": 0,
+        "element": null,
+        "skills": [],
+        "recipe": [
+            {
+                "materialId": "mat-fucium-ore",
+                "quantity": 8
+            }
+        ]
+    },
+    {
+        "id": "weapon-pe-longue-first-dance",
+        "name": "First Dance",
+        "type": "Épée Longue",
+        "attack": 14,
+        "damage": {
+            "d1": 6,
+            "d2": 3,
+            "d3": 5,
+            "d4": 0
+        },
+        "rarity": 3,
+        "affinity": 0,
+        "element": null,
+        "skills": [],
+        "recipe": [
+            {
+                "materialId": "mat-kulu-beak",
+                "quantity": 1
+            },
+            {
+                "materialId": "mat-kulu-hide",
+                "quantity": 2
+            },
+            {
+                "materialId": "mat-kulu-scale",
+                "quantity": 4
+            },
+            {
+                "materialId": "mat-unknown-earth-crystal",
+                "quantity": 3
+            }
+        ]
+    },
+    {
+        "id": "weapon-pe-longue-last-dance",
+        "name": "Last Dance",
+        "type": "Épée Longue",
+        "attack": 16,
+        "damage": {
+            "d1": 5,
+            "d2": 7,
+            "d3": 4,
+            "d4": 0
+        },
+        "rarity": 4,
+        "affinity": 0,
+        "element": null,
+        "skills": [],
+        "recipe": [
+            {
+                "materialId": "mat-kulu-beak",
+                "quantity": 2
+            },
+            {
+                "materialId": "mat-kulu-hide",
+                "quantity": 3
+            },
+            {
+                "materialId": "mat-kulu-plume",
+                "quantity": 3
+            },
+            {
+                "materialId": "mat-boulder-bone",
+                "quantity": 4
+            }
+        ]
+    },
+    {
+        "id": "weapon-pe-longue-blooming-hammer",
+        "name": "Blooming Hammer",
+        "type": "Épée Longue",
+        "attack": 12,
+        "damage": {
+            "d1": 7,
+            "d2": 4,
+            "d3": 1,
+            "d4": 0
+        },
+        "rarity": 3,
+        "affinity": 0,
+        "element": null,
+        "skills": [],
+        "recipe": [
+            {
+                "materialId": "mat-pukei-quill",
+                "quantity": 2
+            },
+            {
+                "materialId": "mat-pukei-scale",
+                "quantity": 3
+            },
+            {
+                "materialId": "mat-unknown-poison-sac",
+                "quantity": 1
+            }
+        ]
+    },
+    {
+        "id": "weapon-pe-longue-buon-fiore",
+        "name": "Buon Fiore",
+        "type": "Épée Longue",
+        "attack": 12,
+        "damage": {
+            "d1": 7,
+            "d2": 4,
+            "d3": 1,
+            "d4": 0
+        },
+        "rarity": 4,
+        "affinity": 0,
+        "element": null,
+        "skills": [],
+        "recipe": [
+            {
+                "materialId": "mat-pukei-scale",
+                "quantity": 3
+            },
+            {
+                "materialId": "mat-pukei-wing",
+                "quantity": 2
+            },
+            {
+                "materialId": "mat-unknown-toxin-sac",
+                "quantity": 2
+            },
+            {
+                "materialId": "mat-quality-bone",
+                "quantity": 3
+            }
+        ]
+    },
+    {
+        "id": "weapon-pe-longue-blazing-hammer",
+        "name": "Blazing Hammer",
+        "type": "Épée Longue",
+        "attack": 12,
+        "damage": {
+            "d1": 7,
+            "d2": 4,
+            "d3": 1,
+            "d4": 0
+        },
+        "rarity": 3,
+        "affinity": 0,
+        "element": null,
+        "skills": [],
+        "recipe": [
+            {
+                "materialId": "mat-anjanath-fang",
+                "quantity": 2
+            },
+            {
+                "materialId": "mat-anjanath-scale",
+                "quantity": 3
+            },
+            {
+                "materialId": "mat-unknown-flame-sac",
+                "quantity": 1
+            }
+        ]
+    },
+    {
+        "id": "weapon-pe-longue-anja-striker",
+        "name": "Anja Striker",
+        "type": "Épée Longue",
+        "attack": 12,
+        "damage": {
+            "d1": 7,
+            "d2": 4,
+            "d3": 1,
+            "d4": 0
+        },
+        "rarity": 4,
+        "affinity": 0,
+        "element": null,
+        "skills": [],
+        "recipe": [
+            {
+                "materialId": "mat-anjanath-fang",
+                "quantity": 4
+            },
+            {
+                "materialId": "mat-anjanath-scale",
+                "quantity": 3
+            },
+            {
+                "materialId": "mat-unknown-inferno-sac",
+                "quantity": 3
+            },
+            {
+                "materialId": "mat-anjanath-pelt",
+                "quantity": 1
+            }
+        ]
+    },
+    {
+        "id": "weapon-pe-longue-diablos-sledge",
+        "name": "Diablos Sledge",
+        "type": "Épée Longue",
+        "attack": 12,
+        "damage": {
+            "d1": 7,
+            "d2": 4,
+            "d3": 1,
+            "d4": 0
+        },
+        "rarity": 4,
+        "affinity": 0,
+        "element": null,
+        "skills": [],
+        "recipe": [
+            {
+                "materialId": "mat-unknown-twisted-horn",
+                "quantity": 1
+            },
+            {
+                "materialId": "mat-diablos-fang",
+                "quantity": 2
+            },
+            {
+                "materialId": "mat-diablos-shell",
+                "quantity": 4
+            },
+            {
+                "materialId": "mat-bone-medium",
+                "quantity": 3
+            }
+        ]
+    },
+    {
+        "id": "weapon-pe-longue-diabos-shatterer",
+        "name": "Diabos Shatterer",
+        "type": "Épée Longue",
+        "attack": 12,
+        "damage": {
+            "d1": 7,
+            "d2": 4,
+            "d3": 1,
+            "d4": 0
+        },
+        "rarity": 5,
+        "affinity": 0,
+        "element": null,
+        "skills": [],
+        "recipe": [
+            {
+                "materialId": "mat-unknown-majestic-horn",
+                "quantity": 3
+            },
+            {
+                "materialId": "mat-diablos-carapace",
+                "quantity": 6
+            },
+            {
+                "materialId": "mat-diablos-ridge",
+                "quantity": 5
+            },
+            {
+                "materialId": "mat-unknown-blos-medulla",
+                "quantity": 1
+            }
+        ]
+    },
+    {
+        "id": "weapon-pe-longue-nergal-reaver",
+        "name": "Nergal Reaver",
+        "type": "Épée Longue",
+        "attack": 12,
+        "damage": {
+            "d1": 7,
+            "d2": 3,
+            "d3": 2,
+            "d4": 0
+        },
+        "rarity": 5,
+        "affinity": 0,
+        "element": null,
+        "skills": [],
+        "recipe": [
+            {
+                "materialId": "mat-nergigante-talon",
+                "quantity": 1
+            },
+            {
+                "materialId": "mat-nergigante-regrowth",
+                "quantity": 1
+            },
+            {
+                "materialId": "mat-nergigante-tail",
+                "quantity": 2
+            },
+            {
+                "materialId": "mat-nergigante-carapace",
+                "quantity": 2
+            }
+        ]
+    },
+    {
+        "id": "weapon-pe-longue-extermination-s-edge",
+        "name": "Extermination's Edge",
+        "type": "Épée Longue",
+        "attack": 14,
+        "damage": {
+            "d1": 7,
+            "d2": 4,
+            "d3": 3,
+            "d4": 0
+        },
+        "rarity": 5,
         "affinity": 0,
         "element": null,
         "skills": [],

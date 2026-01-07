@@ -192,6 +192,13 @@ const IconMapping = {
             3: "HammerRarity3.webp",
             4: "HammerRarity4.webp",
             5: "HammerRarity5.webp"
+        },
+        "Épée Longue": {
+            1: "LongswordRarity1.webp",
+            2: "LongswordRarity2.webp",
+            3: "LongswordRarity3.webp",
+            4: "LongswordRarity4.webp",
+            5: "LongswordRarity5.webp"
         }
     },
 
@@ -213,17 +220,10 @@ const IconMapping = {
     /**
      * Get the armor icon path
      * @param {string} slot - Armor slot (head, chest, legs)
-     * @param {number} defense - Defense value to determine rarity
+     * @param {number} rarity - Rarity level (1-5)
      * @returns {string} Full path to the armor asset
      */
-    getArmorIcon(slot, defense) {
-        // Determine rarity based on defense value
-        let rarity = 1;
-        if (defense >= 4) rarity = 5;
-        else if (defense >= 3) rarity = 4;
-        else if (defense >= 2) rarity = 3;
-        else if (defense >= 1) rarity = 2;
-
+    getArmorIcon(slot, rarity = 1) {
         if (this.armor[slot] && this.armor[slot][rarity]) {
             return `assets/armor/${this.armor[slot][rarity]}`;
         }
@@ -235,19 +235,14 @@ const IconMapping = {
     /**
      * Get the weapon icon path
      * @param {string} type - Weapon type (e.g., "Grande Épée")
-     * @param {number} attack - Attack value to determine rarity
+     * @param {number} rarity - Rarity level (1-5)
      * @returns {string} Full path to the weapon asset
      */
-    getWeaponIcon(type, attack) {
-        // Determine rarity based on attack value
-        let rarity = 1;
-        if (attack >= 20) rarity = 5;
-        else if (attack >= 15) rarity = 4;
-        else if (attack >= 10) rarity = 3;
-        else if (attack >= 5) rarity = 2;
-
+    getWeaponIcon(type, rarity = 1) {
         if (this.weapons[type] && this.weapons[type][rarity]) {
-            const weaponFolder = type === 'Grande Épée' ? 'greatSword' : 'hammer';
+            let weaponFolder = 'greatSword';
+            if (type === 'Marteau') weaponFolder = 'hammer';
+            else if (type === 'Épée Longue') weaponFolder = 'longsword';
             return `assets/weapons/${weaponFolder}/${this.weapons[type][rarity]}`;
         }
 

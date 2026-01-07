@@ -4,6 +4,7 @@
         "name": "Leather Headgear",
         "slot": "head",
         "defense": 0,
+        "rarity": 1,
         "recipe": []
     },
     {
@@ -11,6 +12,7 @@
         "name": "Leather Mail",
         "slot": "chest",
         "defense": 5,
+        "rarity": 1,
         "recipe": [
             {
                 "materialId": "mat-carbalite-ore",
@@ -36,6 +38,7 @@
         "name": "Leather Trousers",
         "slot": "legs",
         "defense": 5,
+        "rarity": 1,
         "recipe": [
             {
                 "materialId": "mat-carbalite-ore",
@@ -61,6 +64,7 @@
         "name": "Chainmail Headgear",
         "slot": "head",
         "defense": 0,
+        "rarity": 1,
         "recipe": []
     },
     {
@@ -68,6 +72,7 @@
         "name": "Chainmail Vest",
         "slot": "chest",
         "defense": 5,
+        "rarity": 1,
         "recipe": [],
         "elementalDefense": {
             "element": "fire",
@@ -88,6 +93,7 @@
         "name": "Chainmail Trousers",
         "slot": "chest",
         "defense": 5,
+        "rarity": 1,
         "recipe": [],
         "elementalDefense": {
             "element": "fire",
@@ -108,6 +114,7 @@
         "name": "Alloy Helm",
         "slot": "head",
         "defense": 1,
+        "rarity": 2,
         "recipe": [
             {
                 "materialId": "mat-machalite-ore",
@@ -128,6 +135,7 @@
         "name": "Alloy Mail",
         "slot": "chest",
         "defense": 1,
+        "rarity": 2,
         "recipe": [
             {
                 "materialId": "mat-machalite-ore",
@@ -148,6 +156,7 @@
         "name": "Alloy Greaves",
         "slot": "legs",
         "defense": 0,
+        "rarity": 2,
         "recipe": [
             {
                 "materialId": "mat-machalite-ore",
@@ -177,6 +186,7 @@
         "name": "Bone Helm",
         "slot": "head",
         "defense": 1,
+        "rarity": 2,
         "recipe": [
             {
                 "materialId": "mat-bone-small",
@@ -193,6 +203,7 @@
         "name": "Bone Mail",
         "slot": "chest",
         "defense": 0,
+        "rarity": 2,
         "recipe": [
             {
                 "materialId": "mat-bone-small",
@@ -218,6 +229,7 @@
         "name": "Bone Greaves",
         "slot": "legs",
         "defense": 1,
+        "rarity": 2,
         "recipe": [
             {
                 "materialId": "mat-bone-small",
@@ -234,6 +246,7 @@
         "name": "Jagras Helm",
         "slot": "head",
         "defense": 1,
+        "rarity": 3,
         "recipe": [
             {
                 "materialId": "mat-jagras-hide",
@@ -271,6 +284,7 @@
         "name": "Jagras Mail",
         "slot": "chest",
         "defense": 1,
+        "rarity": 3,
         "recipe": [
             {
                 "materialId": "mat-jagras-hide",
@@ -308,6 +322,7 @@
         "name": "Jagras Greaves",
         "slot": "legs",
         "defense": 1,
+        "rarity": 3,
         "recipe": [
             {
                 "materialId": "mat-jagras-scale",
@@ -332,6 +347,7 @@
         "name": "Barroth Helm",
         "slot": "head",
         "defense": 1,
+        "rarity": 3,
         "recipe": [
             {
                 "materialId": "mat-barroth-ridge",
@@ -365,6 +381,7 @@
         "name": "Barroth Mail",
         "slot": "chest",
         "defense": 1,
+        "rarity": 3,
         "recipe": [
             {
                 "materialId": "mat-barroth-carapace",
@@ -393,6 +410,7 @@
         "name": "Barroth Greaves",
         "slot": "legs",
         "defense": 1,
+        "rarity": 3,
         "recipe": [
             {
                 "materialId": "mat-barroth-ridge",
@@ -428,8 +446,9 @@
     {
         "id": "armor-pukei-hood",
         "name": "Pukei Hood",
-        "slot": "chest",
+        "slot": "head",
         "defense": 1,
+        "rarity": 3,
         "recipe": [
             {
                 "materialId": "mat-pukei-carapace",
@@ -463,6 +482,7 @@
         "name": "Pukei Mail",
         "slot": "chest",
         "defense": 1,
+        "rarity": 3,
         "recipe": [
             {
                 "materialId": "mat-pukei-scale",
@@ -496,6 +516,7 @@
         "name": "Pukei Greaves",
         "slot": "legs",
         "defense": 1,
+        "rarity": 3,
         "recipe": [
             {
                 "materialId": "mat-pukei-carapace",
@@ -533,6 +554,7 @@
         "name": "Jyura Helm",
         "slot": "head",
         "defense": 1,
+        "rarity": 3,
         "recipe": [
             {
                 "materialId": "mat-jyuratodus-scale",
@@ -570,6 +592,7 @@
         "name": "Jyura Mail",
         "slot": "chest",
         "defense": 1,
+        "rarity": 3,
         "recipe": [
             {
                 "materialId": "mat-jyuratodus-scale",
@@ -607,6 +630,7 @@
         "name": "Jyura Greaves",
         "slot": "legs",
         "defense": 1,
+        "rarity": 3,
         "recipe": [
             {
                 "materialId": "mat-jyuratodus-carapace",
@@ -635,6 +659,7 @@
         "name": "Kadachi Helm",
         "slot": "head",
         "defense": 0,
+        "rarity": 3,
         "recipe": [
             {
                 "materialId": "mat-unknown-tobikadachi-pelt",
@@ -668,6 +693,7 @@
         "name": "Kadachi Mail",
         "slot": "chest",
         "defense": 1,
+        "rarity": 3,
         "recipe": [
             {
                 "materialId": "mat-unknown-tobikadachi-pelt",
@@ -705,6 +731,7 @@
         "name": "Kadachi Greaves",
         "slot": "legs",
         "defense": 1,
+        "rarity": 3,
         "recipe": [
             {
                 "materialId": "mat-unknown-tobikadachi-scale",
@@ -738,6 +765,7 @@
         "name": "Anja Helm",
         "slot": "head",
         "defense": 1,
+        "rarity": 3,
         "recipe": [
             {
                 "materialId": "mat-anjanath-pelt",
@@ -771,6 +799,7 @@
         "name": "Anja Mail",
         "slot": "chest",
         "defense": 1,
+        "rarity": 3,
         "recipe": [
             {
                 "materialId": "mat-anjanath-pelt",
@@ -804,6 +833,7 @@
         "name": "Anja Greaves",
         "slot": "legs",
         "defense": 1,
+        "rarity": 3,
         "recipe": [
             {
                 "materialId": "mat-anjanath-scale",
@@ -832,6 +862,7 @@
         "name": "Rathalos Helm",
         "slot": "head",
         "defense": 2,
+        "rarity": 4,
         "recipe": [
             {
                 "materialId": "mat-rathalos-scale",
@@ -865,6 +896,7 @@
         "name": "Rathalos Mail",
         "slot": "chest",
         "defense": 1,
+        "rarity": 4,
         "recipe": [
             {
                 "materialId": "mat-rathalos-scale",
@@ -898,6 +930,7 @@
         "name": "Rathalos Greaves",
         "slot": "legs",
         "defense": 1,
+        "rarity": 4,
         "recipe": [
             {
                 "materialId": "mat-rathalos-shell",
