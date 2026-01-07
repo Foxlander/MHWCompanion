@@ -730,10 +730,42 @@ const Components = {
                         </div>
                         <div class="forge-card-recipe">
                             ${weapon.recipe.slice(0, 3).map(req => {
+                                // Check if this is a weapon requirement (materialId contains "weapon-" or starts with "mat-unknown-")
+                                const isWeaponReq = req.materialId.includes('weapon-') || req.materialId.startsWith('mat-unknown-');
+
+                                if (isWeaponReq) {
+                                    // This is a weapon requirement - find the weapon name
+                                    const requiredWeapon = State.getGameData().weapons.find(w => w.id === req.materialId);
+                                    const hasWeapon = hunter.forgedWeapons.includes(req.materialId);
+
+                                    if (requiredWeapon) {
+                                        const weaponImage = IconMapping.getWeaponIcon(requiredWeapon.type, requiredWeapon.rarity || 1);
+                                        return `
+                                            <div class="recipe-mat weapon-req ${hasWeapon ? 'available' : 'missing'}" title="${requiredWeapon.name}">
+                                                <img src="${weaponImage}" alt="${requiredWeapon.name}" onerror="this.src='assets/icon.png'">
+                                                <span class="weapon-name">${requiredWeapon.name}</span>
+                                            </div>
+                                        `;
+                                    }
+                                }
+
+                                // Regular material
                                 const material = State.getGameData().materials.find(m => m.id === req.materialId);
                                 const owned = hunter.chest.find(m => m.id === req.materialId);
                                 const hasEnough = owned && owned.quantity >= req.quantity;
-                                // Use IconMapping for material icons in recipes
+
+                                // Check if material exists
+                                if (!material && req.materialId.startsWith('mat-unknown-')) {
+                                    // Unknown material - extract name from ID
+                                    const unknownName = req.materialId.replace('mat-unknown-', '').replace(/-/g, ' ');
+                                    return `
+                                        <div class="recipe-mat missing unknown-mat" title="Matériau non mappé: ${unknownName}">
+                                            <img src="assets/icon.png" alt="Unknown" onerror="this.src='assets/icon.png'">
+                                            <span class="unknown-label">?</span>
+                                        </div>
+                                    `;
+                                }
+
                                 const matImage = material ? IconMapping.getMaterialIcon(material.icon) : 'assets/icon.png';
 
                                 return `
@@ -848,10 +880,42 @@ const Components = {
                         </div>
                         <div class="forge-card-recipe">
                             ${armor.recipe.slice(0, 3).map(req => {
+                                // Check if this is an armor requirement (materialId contains "armor-" or starts with "mat-unknown-")
+                                const isArmorReq = req.materialId.includes('armor-') || req.materialId.startsWith('mat-unknown-');
+
+                                if (isArmorReq) {
+                                    // This is an armor requirement - find the armor name
+                                    const requiredArmor = State.getGameData().armor.find(a => a.id === req.materialId);
+                                    const hasArmor = hunter.forgedArmor.includes(req.materialId);
+
+                                    if (requiredArmor) {
+                                        const armorImage = IconMapping.getArmorIcon(requiredArmor.slot, requiredArmor.rarity || 1);
+                                        return `
+                                            <div class="recipe-mat armor-req ${hasArmor ? 'available' : 'missing'}" title="${requiredArmor.name}">
+                                                <img src="${armorImage}" alt="${requiredArmor.name}" onerror="this.src='assets/icon.png'">
+                                                <span class="armor-name">${requiredArmor.name}</span>
+                                            </div>
+                                        `;
+                                    }
+                                }
+
+                                // Regular material
                                 const material = State.getGameData().materials.find(m => m.id === req.materialId);
                                 const owned = hunter.chest.find(m => m.id === req.materialId);
                                 const hasEnough = owned && owned.quantity >= req.quantity;
-                                // Use IconMapping for material icons in recipes
+
+                                // Check if material exists
+                                if (!material && req.materialId.startsWith('mat-unknown-')) {
+                                    // Unknown material - extract name from ID
+                                    const unknownName = req.materialId.replace('mat-unknown-', '').replace(/-/g, ' ');
+                                    return `
+                                        <div class="recipe-mat missing unknown-mat" title="Matériau non mappé: ${unknownName}">
+                                            <img src="assets/icon.png" alt="Unknown" onerror="this.src='assets/icon.png'">
+                                            <span class="unknown-label">?</span>
+                                        </div>
+                                    `;
+                                }
+
                                 const matImage = material ? IconMapping.getMaterialIcon(material.icon) : 'assets/icon.png';
 
                                 return `
@@ -1157,16 +1221,34 @@ const Components = {
         let html = `
             <div class="forge-view-page">
                 <h2>Forge</h2>
-                <div class="forge-section">
-                    <h3>Armes</h3>
-                    <div class="forge-items">
-                        ${this.renderWeaponsList(hunterId, gameData.weapons)}
+
+                <!-- Forge Category Tabs -->
+                <div class="forge-tabs">
+                    <button class="forge-tab-btn active" data-forge-tab="weapons">
+                        <span class="tab-icon">⚔️</span>
+                        <span class="tab-label">Armes</span>
+                    </button>
+                    <button class="forge-tab-btn" data-forge-tab="armor">
+                        <span class="tab-icon">🛡️</span>
+                        <span class="tab-label">Armures</span>
+                    </button>
+                </div>
+
+                <!-- Weapons Section -->
+                <div class="forge-tab-content active" data-forge-content="weapons">
+                    <div class="forge-section">
+                        <div class="forge-items">
+                            ${this.renderWeaponsList(hunterId, gameData.weapons)}
+                        </div>
                     </div>
                 </div>
-                <div class="forge-section">
-                    <h3>Armures</h3>
-                    <div class="forge-items">
-                        ${this.renderArmorsList(hunterId, gameData.armor)}
+
+                <!-- Armor Section -->
+                <div class="forge-tab-content" data-forge-content="armor">
+                    <div class="forge-section">
+                        <div class="forge-items">
+                            ${this.renderArmorsList(hunterId, gameData.armor)}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1226,6 +1308,24 @@ const Components = {
 
                 // Update icon
                 icon.textContent = subheader.classList.contains('active') ? '▼' : '▶';
+            });
+        });
+
+        // Add forge tab listeners (Weapons/Armor tabs)
+        container.querySelectorAll('.forge-tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const targetTab = btn.dataset.forgeTab;
+
+                // Remove active class from all tabs and contents
+                container.querySelectorAll('.forge-tab-btn').forEach(b => b.classList.remove('active'));
+                container.querySelectorAll('.forge-tab-content').forEach(c => c.classList.remove('active'));
+
+                // Add active class to clicked tab and corresponding content
+                btn.classList.add('active');
+                const content = container.querySelector(`[data-forge-content="${targetTab}"]`);
+                if (content) {
+                    content.classList.add('active');
+                }
             });
         });
     },
